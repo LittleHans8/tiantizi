@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app')
 
 @section('title','注册页面')
 
@@ -8,10 +8,10 @@
         <div class="card mx-2">
             <div class="card-block p-2">
                 <h1>注册</h1>
-                <p class="text-muted">注册账号</p>
-                <form role="form" method="POST" action="{{ route('register') }}">
-
-                    {{ csrf_field() }}
+                <p class="text-muted">注册一个账号，发现新的世界</p>
+                <form role="form" method="POST">
+                    {{--<form role="form" method="POST" action="{{ route('register') }}">--}}
+                    {{--{{ csrf_field() }}--}}
 
                     <div class="input-group mb-1  {{  $errors->has('name') ? ' badge-danger' : '' }}">
                             <span class="input-group-addon"><i class="icon-user"></i>
@@ -62,14 +62,9 @@
 
             <div class="card-footer p-2">
                 <div class="row">
-                    <div class="col-6">
-                        <button class="btn btn-block btn-facebook" type="button">
-                            <span>facebook</span>
-                        </button>
-                    </div>
-                    <div class="col-6">
-                        <button class="btn btn-block btn-twitter" type="button">
-                            <span>twitter</span>
+                    <div class="col-12">
+                        <button class="btn btn-block btn-primary" type="button" onclick="window.location='/login'">
+                            <span>登陆</span>
                         </button>
                     </div>
                 </div>
