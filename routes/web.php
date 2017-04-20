@@ -27,4 +27,12 @@ Route::get('/register',function () {
     return view('auth.register');
 });
 
+Route::get('/blank',function () {
+    return view('layouts.blank');
+});
+
+Route::get('/person',function () {
+    return view('dashboard.person');
+});
+
 
