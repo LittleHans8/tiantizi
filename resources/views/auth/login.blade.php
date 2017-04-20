@@ -8,7 +8,7 @@
             <div class="card p-2">
                 <div class="card-block">
                     <h1>登陆</h1>
-                    <p class="text-muted">登陆账号，发现自由</p>
+                    <p class="text-muted">它墙任它墙，登陆账号，发现自由</p>
                     <div class="input-group mb-1">
                                 <span class="input-group-addon"><i class="icon-user"></i>
                                 </span>
