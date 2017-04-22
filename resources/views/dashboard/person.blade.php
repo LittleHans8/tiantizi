@@ -7,14 +7,19 @@
     <div class="row" style="margin-top: 40px">
 
         <div class="col-md-4 ui-sortable">
-            <div class="row">
+            <div class="row dragdrop">
                 <div class="col-md-12 ui-sortable">
                     <div class="card card-accent-info">
                         <div class="card-header">
-                            <i class="icon-bulb"></i>公告
+                            <i class="icon-user"></i>用户信息
                         </div>
                         <div class="card-block">
-                            公告信息
+                            <p>用户类型：免费用户</p>
+                            <p>端口：10000
+                            <p>密码：密码为登陆密码</p>
+                            <p>默认加密方式：rc4-md5</p>
+                            <p>服务到期时间：2017-01-01~2018-12-12</p>
+                            <button type="button" class="btn btn-outline-primary">升级套餐</button>
                         </div>
                     </div>
                 </div>
@@ -47,15 +52,14 @@
         </div>
 
         <div class="col-md-4 ui-sortable">
-            <div class="row dragdrop">
+            <div class="row">
                 <div class="col-md-12 ui-sortable">
                     <div class="card card-accent-info">
                         <div class="card-header">
-                            Drag &amp; Drop Card
+                            <i class="icon-bulb"></i>公告
                         </div>
                         <div class="card-block">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                            ea commodo consequat.
+                            公告信息
                         </div>
                     </div>
                 </div>
