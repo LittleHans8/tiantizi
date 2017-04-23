@@ -39,4 +39,8 @@ Route::get('/node',function () {
     return view('dashboard.node');
 });
 
+Route::get('/buy',function () {
+    return view('dashboard.buy');
+});
+
 

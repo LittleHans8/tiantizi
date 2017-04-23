@@ -3,9 +3,6 @@
 @section('title','节点列表')
 
 @section('main')
-
-
-
     <div class="row" style="margin-top: 40px">
 
         <div class="col-sm-10 col-md-10">

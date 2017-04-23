@@ -84,7 +84,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="icon-basket"></i>购买服务</a>
+                    <a class="nav-link" href="/buy"><i class="icon-basket"></i>购买服务</a>
                 </li>
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link" href="#"><i class="icon-energy"></i> 流量记录</a>
