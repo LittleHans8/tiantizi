@@ -86,15 +86,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/buy"><i class="icon-basket"></i>购买服务</a>
                 </li>
+
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link" href="#"><i class="icon-energy"></i> 流量记录</a>
 
                 </li>
+
                 <li class="nav-item ">
-                    <a class="nav-link" href="#"><i class="icon-speech"></i> 提交工单</a>
+                    <a class="nav-link" href="#"><i class="icon-speech"></i>提交工单</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="icon-handbag"></i>礼品兑换</a>
+                    <a class="nav-link" href="/gift"><i class="icon-handbag"></i>礼品兑换</a>
                 </li>
 
                 <li class="divider"></li>
@@ -102,7 +105,7 @@
                     <i class="icon-target"></i>&nbsp; 其它
                 </li>
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link" href="#"><i class="icon-wallet"></i>赚取佣金</a>
+                    <a class="nav-link" href="/spread"><i class="icon-wallet"></i>赚取佣金</a>
 
                 </li>
                 <li class="nav-item">

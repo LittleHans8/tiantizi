@@ -42,5 +42,11 @@ Route::get('/node',function () {
 Route::get('/buy',function () {
     return view('dashboard.buy');
 });
+Route::get('/gift',function () {
+    return view('dashboard.gift');
+});
+Route::get('/spread',function () {
+    return view('dashboard.spread');
+});
 
 
