@@ -35,4 +35,8 @@ Route::get('/person',function () {
     return view('dashboard.person');
 });
 
+Route::get('/node',function () {
+    return view('dashboard.node');
+});
+
 

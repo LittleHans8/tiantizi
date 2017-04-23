@@ -11,7 +11,7 @@
     <meta name="keyword" content="天梯子">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 
-    <title>天梯子- @yield('title')</title>
+    <title>天梯子-@yield('title')</title>
 
     <!-- Icons -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -80,7 +80,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="icon-paper-plane"></i>节点列表</a>
+                    <a class="nav-link" href="/node"><i class="icon-paper-plane"></i>节点列表</a>
                 </li>
 
                 <li class="nav-item">
@@ -190,8 +190,7 @@
 
 <!-- GenesisUI main scripts -->
 
-<script src="js/app.js"></script>
-
+<script src="{{ asset('js/app.js') }}"></script>
 
 </body>
 

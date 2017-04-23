@@ -16,7 +16,7 @@
                         <div class="card-block">
                             <p>用户类型：免费用户</p>
                             <p>端口：10000
-                            <p>密码：密码为登陆密码</p>
+                            <p>密码：your_password</p>
                             <p>默认加密方式：rc4-md5</p>
                             <p>服务到期时间：2017-01-01~2018-12-12</p>
                             <button type="button" class="btn btn-outline-primary">升级套餐</button>
