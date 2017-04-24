@@ -15,6 +15,7 @@
                         </div>
                         <div class="card-block">
                             <p>用户类型：免费用户</p>
+                            <p>月流量：5G</p>
                             <p>端口：10000
                             <p>密码：your_password</p>
                             <p>默认加密方式：rc4-md5</p>
