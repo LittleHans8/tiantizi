@@ -29,11 +29,25 @@
                     <div class="input-group mb-1 {{ $errors->has('email') ? ' badge-danger' : '' }}">
                         <span class="input-group-addon">@</span>
                         <input id="email" name="email" type="text" class="form-control" placeholder="邮箱"
-                               value="{{ old('email') }}" required>
+                               value="{{ old('email') }}" required><span id="span_send_code" class="input-group-addon">
+                            <a id="send_code" href="#">发送验证码</a></span>
                     </div>
+
                     @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+
+                    <div class="input-group mb-1 {{ $errors->has('code') ? ' badge-danger' : '' }}">
+                        <span class="input-group-addon"><i class="icon-note"></i></span>
+                        <input id="text" name="code" type="text" class="form-control" placeholder="验证码"
+                               value="{{ old('code') }}" required>
+                    </div>
+
+                    @if ($errors->has('code'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('code') }}</strong>
                         </span>
                     @endif
 
@@ -73,3 +87,26 @@
     </div>
 
 @endsection
+
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $("#send_code").click(function () {
+                var counter = 5;
+                $("#span_send_code").css("pointer-events", "none");
+                var interval = setInterval(function () {
+                    counter--;
+                    $("#send_code").text(counter + "s");
+
+                    if (counter == 0) {
+                        $("#span_send_code").css("pointer-events", "auto");
+                        $("#send_code").text("重新发送");
+                        clearInterval(interval);
+                    }
+                }, 1000);
+            });
+        });
+
+    </script>
+@endsection
+

@@ -44,7 +44,7 @@
 <script src="{{ asset('js/libs/jquery.min.js') }}"></script>
 <script src="{{ asset('js/libs/tether.min.js') }}"></script>
 <script src="{{ asset('js/libs/bootstrap.min.js') }}"></script>
-
+@yield('script')
 
 </body>
 
