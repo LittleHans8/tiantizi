@@ -10,8 +10,8 @@
                 <h1>注册</h1>
                 <p class="text-muted">注册一个账号，发现新的世界</p>
                 <form role="form" method="POST">
-                    {{--<form role="form" method="POST" action="{{ route('register') }}">--}}
-                    {{--{{ csrf_field() }}--}}
+                    <form role="form" method="POST" action="{{ route('register') }}">
+                    {{ csrf_field() }}
 
                     <div class="input-group mb-1  {{  $errors->has('name') ? ' badge-danger' : '' }}">
                             <span class="input-group-addon"><i class="icon-user"></i>

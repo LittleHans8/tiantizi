@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
@@ -23,9 +23,9 @@ Route::get('/login',function () {
     return view('auth.login');
 });
 
-Route::get('/register',function () {
-    return view('auth.register');
-});
+//Route::get('/register',function () {
+//    return view('auth.register');
+//});
 
 Route::get('/blank',function () {
     return view('layouts.blank');
