@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EmailVerify extends Migration
+class CreateNodeOnlineLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class EmailVerify extends Migration
      */
     public function up()
     {
-        Schema::create('email_verify', function (Blueprint $table) {
+        Schema::create('node_online_logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email')->unique();
-            $table->string('token');
-            $table->timestamps();
+            $table->integer('node_id');
+            $table->integer('online_user');
+            $table->integer('log_time');
         });
     }
 
@@ -28,6 +28,6 @@ class EmailVerify extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('email_verify');
+        Schema::dropIfExists('node_online_logs');
     }
 }
