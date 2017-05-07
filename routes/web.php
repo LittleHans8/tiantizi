@@ -15,11 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix'=>'api','middleware'=>['simpleapi']] ,function () {
+    Route::get('users', function () {
+        return "Yes";
+    });
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/login',function () {
+Route::get('/login', function () {
     return view('auth.login');
 });
 
@@ -27,25 +33,25 @@ Route::get('/login',function () {
 //    return view('auth.register');
 //});
 
-Route::get('/blank',function () {
+Route::get('/blank', function () {
     return view('layouts.blank');
 });
 
-Route::get('/person',function () {
+Route::get('/person', function () {
     return view('dashboard.person');
 });
 
-Route::get('/node',function () {
+Route::get('/node', function () {
     return view('dashboard.node');
 });
 
-Route::get('/buy',function () {
+Route::get('/buy', function () {
     return view('dashboard.buy');
 });
-Route::get('/gift',function () {
+Route::get('/gift', function () {
     return view('dashboard.gift');
 });
-Route::get('/spread',function () {
+Route::get('/spread', function () {
     return view('dashboard.spread');
 });
 
