@@ -19,7 +19,7 @@ class RolesTableSeeder extends Seeder
         $this->saveRoles('vip3', 'vip3', 'vip，大流量版套餐');
         $this->saveRoles('vip2', 'vip2', 'vip，中流量版套餐');
         $this->saveRoles('vip1', 'vip1', 'vip，小流量版套餐');
-        $this->saveRoles('free', '免费用户', '免费用户，流量有限，限速');
+        $this->saveRoles('free', '免费用户', '免费用户，前往天梯子公益免费ss站');
     }
 
     private function saveRoles($name, $display_name, $description)

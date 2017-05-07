@@ -16,14 +16,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',128);
-            $table->string('email',64)->unique();
+            $table->string('name', 128);
+            $table->string('email', 64)->unique();
             $table->string('password');
             $table->rememberToken();
             $table->mediumInteger('port')->nullable()->unique(); // 端口号，开通后才给端口号
-            $table->mediumInteger('passwd');// 密码
-            $table->bigInteger('u');// upload
-            $table->bigInteger('d');// d
+            $table->string('passwd');// 密码
+            $table->bigInteger('u')->default(0);// upload
+            $table->bigInteger('d')->default(0);// d
             $table->string('method', 64)->default('chacha20');
             $table->bigInteger('transfer_enable')->default(0); // 每个月默认可以多少
             $table->tinyInteger('enable')->default(1);

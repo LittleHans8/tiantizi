@@ -31,6 +31,6 @@ class CreateUserTrafficLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_traffic_logs');
+        Schema::dropIfExists('user_traffic_logs');
     }
 }
