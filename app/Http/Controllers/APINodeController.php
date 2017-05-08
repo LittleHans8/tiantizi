@@ -24,6 +24,7 @@ class APINodeController extends Controller
         $node_id = $id;
         $log = new NodeOnlineLog();
         $log->node_id = $node_id;
+        $log->log_time = time();
         $log->online_user = $request->count;
         if (!$log->save()) {
             return ApiStatus::status(0, 'update failed');

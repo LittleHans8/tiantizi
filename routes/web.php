@@ -15,19 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'api','middleware'=>['simpleapi']] ,function () {
+Route::group(['prefix' => 'api', 'middleware' => ['simpleapi']], function () {
 //    Route::get('users', 'APIUserController@index');
 //    Route::post('users/{id}/traffic', 'APIUserController@addTraffic');
-    Route::group(['prefix'=>'users'], function () {
+    Route::group(['prefix' => 'users'], function () {
         Route::get('/', 'APIUserController@index');  // api check pass
         Route::post('/{id}/traffic', 'APIUserController@addTraffic'); // api check pass
     });
 
-    Route::group(['prefix'=>'nodes'], function () {
-        Route::post('/{id}/online_count','APINodeController@onlineUserLog');
-        Route::post('/{id}/info', 'APINodeController@info');
-        Route::get('/{id}/users', 'APINodeController@users');
-        Route::post('/{id}/traffic', 'APINodeController@postTraffic');
+    Route::group(['prefix' => 'nodes'], function () {
+        Route::post('/{id}/online_count', 'APINodeController@onlineUserLog');// api check pass
+        Route::post('/{id}/info', 'APINodeController@info');// api check pass
+        Route::get('/{id}/users', 'APINodeController@users'); // 待定，ss-py-my 并没有出现该 api
+        Route::post('/{id}/traffic', 'APINodeController@postTraffic');// 待定，ss-py-my 并没有出现该 api
     });
 });
 
