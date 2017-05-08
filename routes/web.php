@@ -16,9 +16,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'api','middleware'=>['simpleapi']] ,function () {
-    Route::get('users', function () {
-        return "Yes";
-    });
+    Route::get('users', 'APIUserController@index');
+    Route::post('users/{id}/traffic', 'APIUserController@addTraffic');
 });
 
 Auth::routes();

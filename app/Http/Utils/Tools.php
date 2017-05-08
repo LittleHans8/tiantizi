@@ -1,36 +1,16 @@
 <?php
-
-namespace App\Http\Utils;
 /**
  * Created by PhpStorm.
  * User: LittleHans
- * Date: 2017-05-07
- * Time: 12:34
+ * Date: 2017-05-08
+ * Time: 14:47
  */
-class ApiStatus
+
+namespace App\Http\Utils;
+
+
+class Tools
 {
-
-    public static function test()
-    {
-        return "test";
-    }
-
-    public static function status($ret = 1, $msg = null, $data = null)
-    {
-        $res = [];
-
-        if (!is_null($ret)) {
-            $res['ret'] = $ret;
-        }
-        if (!empty($msg)) {
-            $res['msg'] = $msg;
-        }
-        if (!empty($data)) {
-            $res['data'] = $data;
-        }
-        return $res;
-    }
-
     /**
      * 根据流量值自动转换单位输出
      * @param int $value
@@ -52,4 +32,33 @@ class ApiStatus
         }
     }
 
+    /**
+     * @param $traffic
+     * @return mixed
+     */
+    public static function toMB($traffic)
+    {
+        $mb = 1048576;
+        return $traffic * $mb;
+    }
+
+    /**
+     * @param $traffic
+     * @return mixed
+     */
+    public static function toGB($traffic)
+    {
+        $gb = 1048576 * 1024;
+        return $traffic * $gb;
+    }
+
+    /**
+     * @param $traffic
+     * @return float
+     */
+    public static function flowToGB($traffic)
+    {
+        $gb = 1048576 * 1024;
+        return $traffic / $gb;
+    }
 }
