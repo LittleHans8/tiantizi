@@ -19,6 +19,7 @@ class CreateNodeInfoLogsTable extends Migration
             $table->float('uptime'); // cat /proc/uptime 运行时间，以秒为单位
             $table->string('load',32); // cat /proc/loadavg 负载情况
             $table->integer('log_time');
+            $table->timestamps();
         });
     }
 
