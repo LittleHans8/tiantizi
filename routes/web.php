@@ -16,8 +16,19 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix'=>'api','middleware'=>['simpleapi']] ,function () {
-    Route::get('users', 'APIUserController@index');
-    Route::post('users/{id}/traffic', 'APIUserController@addTraffic');
+//    Route::get('users', 'APIUserController@index');
+//    Route::post('users/{id}/traffic', 'APIUserController@addTraffic');
+    Route::group(['prefix'=>'users'], function () {
+        Route::get('/', 'APIUserController@index');
+        Route::post('/{id}/traffic', 'APIUserController@addTraffic');
+    });
+
+    Route::group(['prefix'=>'nodes'], function () {
+        Route::post('/{id}/online_count','APINodeController@onlineUserLog');
+        Route::post('/{id}/info', 'APINodeController@info');
+        Route::get('/{id}/users', 'APINodeController@users');
+        Route::post('/{id}/traffic', 'APINodeController@postTraffic');
+    });
 });
 
 Auth::routes();

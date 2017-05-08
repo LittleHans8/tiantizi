@@ -18,6 +18,7 @@ class CreateNodeOnlineLogsTable extends Migration
             $table->integer('node_id');
             $table->integer('online_user');
             $table->integer('log_time');
+            $table->timestamps();
         });
     }
 
