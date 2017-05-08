@@ -20,6 +20,7 @@ class CreateUserTrafficLogsTable extends Migration
             $table->integer('d');
             $table->integer('node_id');
             $table->string('traffic');
+            $table->integer('log_time');
             $table->timestamps();
         });
     }

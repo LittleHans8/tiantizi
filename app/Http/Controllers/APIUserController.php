@@ -17,17 +17,26 @@ class APIUserController extends Controller
         return ApiStatus::status(null, 'ok', $users);
     }
 
+    /**
+     * 后端传送案列：{"d":1234,"node_id":1,"u":0}
+     *
+     *
+     * @param Request $request
+     * @param $id
+     * @return array|\Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     *
+     */
+
     public function addTraffic(Request $request, $id)
     {
         $u = $request->u;
         $d = $request->d;
-        $node_id = $request->node_id;
+        $node_id = $request->node_id; // node_id 以 json 的形式传送过来
         $node = Node::find($node_id);
         $user = User::find($id);
 //        $user->t = time();
         $user->u += $request->u;
         $user->d += $request->d;
-        $user->update_at = time();
         if (!$user->save()) {
             return response(ApiStatus::status(null, 'update failed'), 400);
         }
