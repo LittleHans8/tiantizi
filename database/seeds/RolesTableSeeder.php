@@ -13,16 +13,16 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         //
-        $this->saveRoles('super_admin', '超级管理员', '最高权限的管理员');
-        $this->saveRoles('admin', '普通管理员', '普通权限的管理员，具体权限待定');
-        $this->saveRoles('agent', '代理商', '代理商');
-        $this->saveRoles('vip3', 'vip3', 'vip，大流量版套餐');
-        $this->saveRoles('vip2', 'vip2', 'vip，中流量版套餐');
-        $this->saveRoles('vip1', 'vip1', 'vip，小流量版套餐');
-        $this->saveRoles('free', '免费用户', '免费用户，前往天梯子公益免费ss站');
+        $this->saveRole('super_admin', '超级管理员', '最高权限的管理员');
+        $this->saveRole('admin', '普通管理员', '普通权限的管理员，具体权限待定');
+        $this->saveRole('agent', '代理商', '代理商');
+        $this->saveRole('vip3', 'vip3', 'vip 10%，大流量版套餐');
+        $this->saveRole('vip2', 'vip2', 'vip 7%，中流量版套餐');
+        $this->saveRole('vip1', 'vip1', 'vip1 5%，，小流量版套餐');
+        $this->saveRole('free', '免费用户', '免费用户，前往天梯子公益免费ss站,提成2%');
     }
 
-    private function saveRoles($name, $display_name, $description)
+    private function saveRole($name, $display_name, $description)
     {
         $role = new Role();
         $role->name = $name;
