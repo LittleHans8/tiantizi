@@ -21,13 +21,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->mediumInteger('port')->nullable()->unique(); // 端口号，开通后才给端口号
-            $table->string('passwd');// 密码
+            $table->string('passwd')->default('0');// 密码,开通服务后才给端口号
             $table->bigInteger('u')->default(0);// upload
             $table->bigInteger('d')->default(0);// d
             $table->string('method', 64)->default('chacha20');
             $table->bigInteger('transfer_enable')->default(0); // 每个月默认可以多少
             $table->tinyInteger('enable')->default(1);
             $table->tinyInteger('switch')->default(1);
+            $table->tinyInteger('is_vip')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

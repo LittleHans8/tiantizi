@@ -11,9 +11,15 @@
 |
 */
 
+use App\Http\Middleware\RedirectIfNotAuthenticated;
+use App\Http\Middleware\SimpleAuth;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => 'api', 'middleware' => ['simpleapi']], function () {
 //    Route::get('users', 'APIUserController@index');
@@ -31,38 +37,41 @@ Route::group(['prefix' => 'api', 'middleware' => ['simpleapi']], function () {
     });
 });
 
-Auth::routes();
+Route::group(['prefix'=>'user', 'middleware' => ['simpleauth'] ], function () {
+    Route::get('/', function () {
+        return view('dashboard.person');
+    });
 
-Route::get('/home', 'HomeController@index');
+    Route::get('/blank', function () {
+        return view('layouts.blank');
+    });
 
-Route::get('/login', function () {
-    return view('auth.login');
+    Route::get('/node', function () {
+        return view('dashboard.node');
+    });
+
+    Route::get('/buy', function () {
+        return view('dashboard.buy');
+    });
+    Route::get('/gift', function () {
+        return view('dashboard.gift');
+    });
+    Route::get('/spread', function () {
+        return view('dashboard.spread');
+    });
 });
+
+Route::get('/home', function () {
+    return view('dashboard.person');
+})->middleware(RedirectIfNotAuthenticated::class);
+
+
+//Route::get('/home', 'HomeController@index');
 
 //Route::get('/register',function () {
 //    return view('auth.register');
 //});
 
-Route::get('/blank', function () {
-    return view('layouts.blank');
-});
 
-Route::get('/person', function () {
-    return view('dashboard.person');
-});
-
-Route::get('/node', function () {
-    return view('dashboard.node');
-});
-
-Route::get('/buy', function () {
-    return view('dashboard.buy');
-});
-Route::get('/gift', function () {
-    return view('dashboard.gift');
-});
-Route::get('/spread', function () {
-    return view('dashboard.spread');
-});
 
 
