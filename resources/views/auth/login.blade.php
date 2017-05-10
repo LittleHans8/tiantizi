@@ -16,25 +16,19 @@
                                 </span>
                             <input type="email" name="email" class="form-control" placeholder="邮箱"
                                    value="{{ old('email') }}" required autofocus>
-                        </div>
 
-                        @if ($errors->has('email'))
-                            <span class="help-block">
+                            @if ($errors->has('email'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                        @endif
+                            @endif
+                        </div>
 
                         <div class="input-group mb-2 {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <span class="input-group-addon"><i class="icon-lock"></i>
                                 </span>
-                            <input type="password" name="password" class="form-control" placeholder="密码" required>
+                            <input type="password" class="form-control" placeholder="密码" required>
                         </div>
-
-                        @if ($errors->has('password'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                        @endif
 
                         <div class="input-group mb-2">
                             <div class="checkbox">
@@ -49,7 +43,10 @@
                                 <button type="submit" class="btn btn-primary px-2">登陆</button>
                             </div>
                             <div class="col-6 text-right">
-                                <button type="button" class="btn btn-link px-0">忘记密码?</button>
+                                {{--<button type="button" class="btn btn-link px-0">忘记密码?</button>--}}
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    忘记密码?
+                                </a>
                             </div>
                         </div>
                     </form>
