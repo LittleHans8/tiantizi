@@ -22,7 +22,7 @@
     <link href="{{ asset('css/glyphicons-filetypes.css') }}" rel="stylesheet">
 {{--    <link href="{{ asset('css/glyphicons-social.css') }}" rel="stylesheet">--}}
 
-    <!-- Main styles for this application -->
+<!-- Main styles for this application -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
@@ -46,7 +46,13 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                aria-haspopup="true" aria-expanded="false">
-                <span class="hidden-md-down">admin</span>
+                @if(Auth::check())
+                    <span class="hidden-md-down">{{ Auth::user()->name }}</span>
+                @else
+                    {{ url('/login') }}
+                @endif
+
+
             </a>
             <div class="dropdown-menu dropdown-menu-right">
 
@@ -59,7 +65,8 @@
                 <div class="dropdown-header text-center">
                     <strong>设置</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="icon-logout"></i> 退出</a>
+                <a id="logout" name="logout" class="dropdown-item" href="{{ route('logout') }}"><i
+                            class="icon-logout"></i> 退出</a>
             </div>
         </li>
 
@@ -71,7 +78,7 @@
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/person"><i class="icon-speedometer"></i> 用户中心</a>
+                    <a class="nav-link" href="{{ url('/home') }}"><i class="icon-speedometer"></i> 用户中心</a>
                 </li>
 
                 <li class="divider"></li>
@@ -80,11 +87,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/node"><i class="icon-paper-plane"></i>节点列表</a>
+                    <a class="nav-link" href="{{ url('/user/node')  }}"><i class="icon-paper-plane"></i>节点列表</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/buy"><i class="icon-basket"></i>购买服务</a>
+                    <a class="nav-link" href="{{ url('/user/buy')  }}"><i class="icon-basket"></i>购买服务</a>
                 </li>
 
                 <li class="nav-item nav-dropdown">
@@ -97,7 +104,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/gift"><i class="icon-handbag"></i>礼品兑换</a>
+                    <a class="nav-link" href="{{ url('/user/gift')  }}"><i class="icon-handbag"></i>礼品兑换</a>
                 </li>
 
                 <li class="divider"></li>
@@ -105,7 +112,7 @@
                     <i class="icon-target"></i>&nbsp; 其它
                 </li>
                 <li class="nav-item nav-dropdown">
-                    <a class="nav-link" href="/spread"><i class="icon-wallet"></i>赚取佣金</a>
+                    <a class="nav-link" href="{{ url('/user/spread')  }}"><i class="icon-wallet"></i>赚取佣金</a>
 
                 </li>
                 <li class="nav-item">
@@ -186,10 +193,8 @@
 <script src="{{ asset('js/libs/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/libs/pace.min.js') }}"></script>
 
-
 <!-- Plugins and scripts required by all views -->
 <script src="{{ asset('js/libs/Chart.min.js') }}"></script>
-
 
 <!-- GenesisUI main scripts -->
 

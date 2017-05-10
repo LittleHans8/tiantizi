@@ -9,24 +9,50 @@
                 <div class="card-block">
                     <h1>登陆</h1>
                     <p class="text-muted">它墙任它墙，登陆账号，发现自由</p>
-                    <div class="input-group mb-1">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+                        <div class="input-group mb-1 {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <span class="input-group-addon"><i class="icon-user"></i>
                                 </span>
-                        <input type="text" class="form-control" placeholder="用户名">
-                    </div>
-                    <div class="input-group mb-2">
+                            <input type="email" name="email" class="form-control" placeholder="邮箱"
+                                   value="{{ old('email') }}" required autofocus>
+                        </div>
+
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                        @endif
+
+                        <div class="input-group mb-2 {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <span class="input-group-addon"><i class="icon-lock"></i>
                                 </span>
-                        <input type="password" class="form-control" placeholder="密码">
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <button type="button" class="btn btn-primary px-2">登陆</button>
+                            <input type="password" name="password" class="form-control" placeholder="密码" required>
                         </div>
-                        <div class="col-6 text-right">
-                            <button type="button" class="btn btn-link px-0">忘记密码?</button>
+
+                        @if ($errors->has('password'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                        @endif
+
+                        <div class="input-group mb-2">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> 记住我
+                                </label>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary px-2">登陆</button>
+                            </div>
+                            <div class="col-6 text-right">
+                                <button type="button" class="btn btn-link px-0">忘记密码?</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="card card-inverse card-primary py-3 hidden-md-down" style="width:44%">
@@ -37,7 +63,7 @@
                         <p>世界那么大，你不出去看看么?</p>
                         <p>注册一个账号，发现新的世界</p>
                         <button type="button" class="btn btn-primary active mt-1"
-                                onclick="window.location.href='/register'">马上注册!
+                                onclick="window.location.href='{{ url('/register') }}'">马上注册!
                         </button>
                     </div>
                 </div>
