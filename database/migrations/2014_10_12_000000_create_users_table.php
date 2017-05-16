@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 64)->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->mediumInteger('port')->nullable()->default(0)->unique(); // 端口号，开通后才给端口号，过期后端口重置为0
+            $table->mediumInteger('port')->nullable()->unique(); // 端口号，开通后才给端口号，过期后端口重置为0
             $table->string('passwd')->default('0');// 密码,开通服务后才给端口号
             $table->bigInteger('u')->default(0);// upload
             $table->bigInteger('d')->default(0);// d

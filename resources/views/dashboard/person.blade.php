@@ -14,12 +14,15 @@
                             <i class="icon-user"></i>用户信息
                         </div>
                         <div class="card-block">
-                            <p>用户类型：免费用户</p>
-                            <p>月流量：5G</p>
-                            <p>端口：10000
-                            <p>密码：your_password</p>
-                            <p>默认加密方式：rc4-md5</p>
-                            <p>服务到期时间：2017-01-01~2018-12-12</p>
+
+                            <p>用户类型：{{ $data['display_name'] }}</p>
+                            <p>月流量：{{ $data['transfer_enable'] }}G</p>
+                            <p>端口：{{ $data['port'] }}</p>
+                            <p>密码：{{ $data ['passwd'] }}</p>
+                            <p>默认加密方式：{{ $data['method'] }}</p>
+                            <p>服务到期时间：{{ $data['expired_at']  }}</p>
+                            <p>备注：希望免费的服务能为您提供一些帮助:-)</p>
+
                             <button type="button" class="btn btn-outline-primary">升级套餐</button>
                         </div>
                     </div>

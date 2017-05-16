@@ -37,7 +37,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['simpleapi']], function () {
     });
 });
 
-Route::group(['prefix'=>'user', 'middleware' => ['simpleauth'] ], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['simpleauth']], function () {
     Route::get('/', function () {
         return view('dashboard.person');
     });
@@ -61,9 +61,8 @@ Route::group(['prefix'=>'user', 'middleware' => ['simpleauth'] ], function () {
     });
 });
 
-Route::get('/home', function () {
-    return view('dashboard.person');
-})->middleware(RedirectIfNotAuthenticated::class);
+Route::get('/home', 'PersonController@index')
+    ->middleware(RedirectIfNotAuthenticated::class);
 
 
 //Route::get('/home', 'HomeController@index');
