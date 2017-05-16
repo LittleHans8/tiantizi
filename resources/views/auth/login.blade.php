@@ -27,7 +27,7 @@
                         <div class="input-group mb-2 {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <span class="input-group-addon"><i class="icon-lock"></i>
                                 </span>
-                            <input type="password" class="form-control" placeholder="密码" required>
+                            <input id="password" name="password" type="password" class="form-control" placeholder="密码" required>
                         </div>
 
                         <div class="input-group mb-2">
