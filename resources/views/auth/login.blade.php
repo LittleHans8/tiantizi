@@ -16,13 +16,13 @@
                                 </span>
                             <input type="email" name="email" class="form-control" placeholder="邮箱"
                                    value="{{ old('email') }}" required autofocus>
+                        </div>
 
-                            @if ($errors->has('email'))
-                                <span class="help-block">
+                        @if ($errors->has('email'))
+                            <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                            @endif
-                        </div>
+                        @endif
 
                         <div class="input-group mb-2 {{ $errors->has('password') ? ' has-error' : '' }}">
                                 <span class="input-group-addon"><i class="icon-lock"></i>
