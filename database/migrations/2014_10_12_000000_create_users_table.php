@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 64)->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->mediumInteger('port')->nullable()->unique(); // 端口号，开通后才给端口号
+            $table->mediumInteger('port')->nullable()->default(0)->unique(); // 端口号，开通后才给端口号，过期后端口重置为0
             $table->string('passwd')->default('0');// 密码,开通服务后才给端口号
             $table->bigInteger('u')->default(0);// upload
             $table->bigInteger('d')->default(0);// d
@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('enable')->default(1);
             $table->tinyInteger('switch')->default(1);
             $table->tinyInteger('is_vip')->default(0);
+            $table->timestamp('expired_at')->nullable(); // 账号过期时间，从购买日期开始计算
             $table->softDeletes();
             $table->timestamps();
         });
