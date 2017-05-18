@@ -46,9 +46,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['simpleauth']], function () {
         return view('layouts.blank');
     });
 
-    Route::get('/node', function () {
-        return view('dashboard.node');
-    });
+    Route::get('/node', 'NodeController@index');
 
     Route::get('/buy', function () {
         return view('dashboard.buy');

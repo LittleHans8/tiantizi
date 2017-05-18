@@ -37,10 +37,12 @@ class PersonController extends Controller
         if ($role_name == 'free') {
             $data = compact($data_name);
         } else {
-            $transfer_enable = Tools::toGB($user->transfer_enable);
+            $transfer_enable = Tools::flowToGB($user->transfer_enable);
             $total_used = $user->u + $user->d;
-            $total_used = Tools::toGB($total_used);
-            $progress_value = $total_used / $transfer_enable * 100;
+            $total_used = round(Tools::flowToGB($total_used),2);
+            if (!empty($transfer_enable)) {
+                $progress_value = $total_used / $transfer_enable * 100;
+            }
             $passwd = $user->passwd;
             $port = $user->port;
             if (empty($port)) {

@@ -14,7 +14,7 @@
                     <span class="badge-danger">为了更加稳定的服务：请勿在任何场合公开以下节点</span><br>
                     特别声明:
                     使用本服务必须遵守当地相关法律法规;
-                    严禁使用本网络进行网络攻击、Spam、P2P下载、BT版权下载及所有国家法律所不允许的非法活动
+                    严禁使用本网络进行网络攻击、垃圾邮箱发送、Spam、P2P下载、BT版权下载及所有国家法律所不允许的非法活动
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                 aria-label="Role: activate to sort column ascending" style="width: 102px;">
-                                默认加密方式
+                                加密方式
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                 aria-label="Status: activate to sort column ascending" style="width: 107px;">
@@ -74,49 +74,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr role="row" class="odd">
-                            <td class="sorting_1">美国1号</td>
-                            <td>p1.us1.vpnhide.com</td>
-                            <td>rc4-md5</td>
-                            <td>
-                                <span class="badge badge-success">正常</span>
-                            </td>
-                            <td>
 
-                                <a class="btn btn-success" href="#" data-toggle="modal" data-target="#detailModal">
-                                    <i class="fa fa-search-plus"></i>
-                                </a>
+                        @foreach($nodes as $node)
+                            <tr role="row">
+                                <td class="sorting_1">{{ $node->name }}</td>
+                                <td>{{ $node->domain }}</td>
+                                <td>{{ $node->method  }}</td>
+                                <td>
+                                    <span class="badge badge-success">{{ $node->status }}</span>
+                                </td>
+                                <td>
 
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#qrcodeModal">
-                                    <i class="fa fa-qrcode"></i>
-                                </a>
+                                    <a class="btn btn-success" href="#" data-toggle="modal" data-target="#detailModal">
+                                        <i class="fa fa-search-plus"></i>
+                                    </a>
 
-                                <a class="btn btn-success" href="#">
-                                    <i class="fa fa-android"></i>
-                                </a>
-                            </td>
-                        </tr>
+                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#qrcodeModal">
+                                        <i class="fa fa-qrcode"></i>
+                                    </a>
 
-                        <tr role="row" class="even">
-                            <td class="sorting_1">美国2号</td>
-                            <td>p1.us2.vpnhide.com</td>
-                            <td>rc4-md5</td>
-                            <td>
-                                <span class="badge badge-success">正常</span>
-                            </td>
-                            <td>
-
-                                <a class="btn btn-success" href="#" data-toggle="modal" data-target="#detailModal">
-                                    <i class="fa fa-search-plus "></i>
-                                </a>
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#qrcodeModal">
-                                    <i class="fa fa-qrcode"></i>
-                                </a>
-                                <a class="btn btn-success" href="#">
-                                    <i class="fa fa-android"></i>
-                                </a>
-                            </td>
-                        </tr>
+                                    <a class="btn btn-success" href="#">
+                                        <i class="fa fa-android"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
 
@@ -126,45 +108,56 @@
     </div>
 @endsection
 
-<div class="modal fade" id="qrcodeModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel"
-     style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-primary" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">PC(电脑端)配置二维码</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <i class="badge-info">提示：</i> <p>找到系统任务栏图标->点击鼠标右键->找到“服务器”->点击“扫描屏幕上的二维码...”</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<div class="modal fade" id="detailModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel"
-     style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-success" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">详细配置</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <i class="badge-info">提示：</i> <p>详细配置...”</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
+@component('components.dialog')
+    @slot('id') qrcodeModal @endslot
+    @slot('type') primary   @endslot
+    @slot('title') PC(电脑端)配置二维码 @endslot
+    @slot('body')
+        <i class="badge-info">提示：</i>
+        <p>找到系统任务栏图标->点击鼠标右键->找到“服务器”->点击“扫描屏幕上的二维码...”</p>
+
+        <input id="text" type="text" value="chacha20:password@hostname:1234" style="width:80%"/><br/>
+        <div id="qrcode"></div>
+
+    @endslot
+@endcomponent
+
+@component('components.dialog')
+    @slot('id') detailModal @endslot
+    @slot('type') success   @endslot
+    @slot('title') 详细配置 @endslot
+    @slot('body')
+        <i class="badge-info">提示：</i> <p>详细配置...”</p>
+    @endslot
+@endcomponent
+
+@section('script')
+
+    <script src="{{ asset('js/libs/qrcode.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            var qrcode = new QRCode("qrcode");
+
+            function makeCode() {
+                var elText = document.getElementById("text");
+                if (!elText.value) {
+                    alert("Input a text");
+                    elText.focus();
+                    return;
+                }
+                var ssurl = "ss://" + btoa(elText.value);
+                qrcode.makeCode(ssurl);
+            }
+
+            makeCode();
+
+            $("#text").on("blur", function () {
+                makeCode();
+            }).on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    makeCode();
+                }
+            });
+        });
+    </script>
+@endsection
