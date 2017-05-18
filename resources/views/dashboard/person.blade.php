@@ -21,9 +21,17 @@
                             <p>密码：{{ $data ['passwd'] }}</p>
                             <p>默认加密方式：{{ $data['method'] }}</p>
                             <p>服务到期时间：{{ $data['expired_at']  }}</p>
+
+                            @role('free')
                             <p>备注：希望免费的服务能为您提供一些帮助:-)</p>
+                            @endrole
 
                             <button type="button" class="btn btn-outline-primary">升级套餐</button>
+
+                            @role('free')
+                            <button type="button" class="btn btn-outline-primary">支持我们</button>
+                            @endrole()
+
                         </div>
                     </div>
                 </div>
@@ -40,10 +48,12 @@
 
                         <div class="card card-inverse card-info">
                             <div class="card-block">
-                                <div class="h4 m-0">10 GB</div>
-                                <div>共使用 3GB...</div>
+                                <div class="h4 m-0">共{{ $data['transfer_enable'] }} GB</div>
+                                <div>已使用 {{ $data['total_used'] }} GB...</div>
                                 <div class="progress progress-white progress-xs my-1">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25"
+                                    <div class="progress-bar" role="progressbar"
+                                         style="width: {{ $data['progress_value'] }}%"
+                                         aria-valuenow="{{ $data['progress_value'] }}"
                                          aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <small class="text-muted">注意：流量会延迟一段时间后记录...</small>
@@ -63,7 +73,7 @@
                             <i class="icon-bulb"></i>公告
                         </div>
                         <div class="card-block">
-                            公告信息
+                            内测期间所有套餐享8折优惠:-)
                         </div>
                     </div>
                 </div>
