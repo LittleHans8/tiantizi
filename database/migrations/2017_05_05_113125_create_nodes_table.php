@@ -17,6 +17,9 @@ class CreateNodesTable extends Migration
             $table->tinyInteger('is_custom_method')->default(1);
             $table->string('info');
             $table->string('status', 64)->default('正常'); // 状态，正常/维护中
+            $table->tinyInteger('type')->default(1); // 0 免费，1 收费
+            $table->mediumInteger('port')->default(8888);// 免费的节点才需要
+            $table->string('passwd')->default("tiantizi.com"); // 免费的节点才需要
             $table->timestamps();
         });
     }

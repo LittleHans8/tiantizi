@@ -71,34 +71,84 @@
                                 aria-label="Actions: activate to sort column ascending" style="width: 249px;">
                                 连接
                             </th>
+                            <th hidden class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                aria-label="Actions: activate to sort column ascending">
+                                port
+                            </th>
+                            <th hidden class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                aria-label="Actions: activate to sort column ascending">
+                                passwd
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        @foreach($nodes as $node)
-                            <tr role="row">
-                                <td class="sorting_1">{{ $node->name }}</td>
-                                <td>{{ $node->domain }}</td>
-                                <td>{{ $node->method  }}</td>
-                                <td>
-                                    <span class="badge badge-success">{{ $node->status }}</span>
-                                </td>
-                                <td>
+                        @if(!empty($nodes))
+                            @foreach($nodes as $node)
+                                <tr role="row">
+                                    <td id="node_name" class="sorting_1">{{ $node->name }}</td>
+                                    <td id="node_domain">{{ $node->domain }}</td>
+                                    <td id="node_method">{{ $node->method  }}</td>
+                                    <td>
+                                        <span class="badge badge-success">{{ $node->status }}</span>
+                                    </td>
+                                    <td>
 
-                                    <a class="btn btn-success" href="#" data-toggle="modal" data-target="#detailModal">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>
+                                        <a id="btn_detail" class="btn btn-secondary" href="#" data-id="{{ $node->id }}"
+                                           data-toggle="modal" data-target="#detailModal">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
 
-                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#qrcodeModal">
-                                        <i class="fa fa-qrcode"></i>
-                                    </a>
+                                        <a id="btn_qrcode" class="btn btn-primary" href="#" data-id="{{ $node->id }}"
+                                           data-toggle="modal"
+                                           data-target="#qrcodeModal">
+                                            <i class="fa fa-qrcode"></i>
+                                        </a>
 
-                                    <a class="btn btn-success" href="#">
-                                        <i class="fa fa-android"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
+                                        <a id="btn_android" class="btn btn-success" href="#" data-toggle="modal"
+                                           data-target="#androidModal">
+                                            <i class="fa fa-android"></i>
+                                        </a>
+                                    </td>
+                                    <td hidden id="node_port">{{ $user->port }}</td>
+                                    <td hidden id="node_passwd">{{ $user->passwd }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+
+                        @if(!empty($free_nodes))
+                            @foreach($free_nodes as $free_node)
+                                <tr role="row">
+                                    <td id="node_name" class="sorting_1">{{ $free_node->name }}</td>
+                                    <td id="node_domain">{{ $free_node->domain }}</td>
+                                    <td id="node_method">{{ $free_node->method  }}</td>
+                                    <td>
+                                        <span class="badge badge-success">{{ $free_node->status }}</span>
+                                    </td>
+                                    <td>
+
+                                        <a id="btn_detail" class="btn btn-secondary" href="#"
+                                           data-toggle="modal" data-target="#detailModal">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+
+                                        <a id="btn_qrcode" class="btn btn-primary" href="#"
+                                           data-toggle="modal"
+                                           data-target="#qrcodeModal">
+                                            <i class="fa fa-qrcode"></i>
+                                        </a>
+
+                                        <a id="btn_android" class="btn btn-success" href="#" data-toggle="modal"
+                                           data-target="#androidModal">
+                                            <i class="fa fa-android"></i>
+                                        </a>
+                                    </td>
+                                    <td hidden id="node_port">{{ $free_node->port }}</td>
+                                    <td hidden id="node_passwd">{{ $free_node->passwd }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+
                         </tbody>
                     </table>
 
@@ -109,54 +159,87 @@
 @endsection
 
 @component('components.dialog')
+    @slot('id') detailModal @endslot
+    @slot('type') secondary   @endslot
+    @slot('title') 详细配置 @endslot
+    @slot('body')
+        <p id="p_domain">服务器地址：<span id="i_domain"></span></p>
+        <p id="p_port">服务器端口：<span id="i_port"></span></p>
+        <p id="p_password">密码：<span id="i_passwd"></span></p>
+        <p id="p_method">加密方式：<span id="i_method"></span></p>
+    @endslot
+@endcomponent
+
+@component('components.dialog')
+    $(this).
     @slot('id') qrcodeModal @endslot
     @slot('type') primary   @endslot
     @slot('title') PC(电脑端)配置二维码 @endslot
     @slot('body')
         <i class="badge-info">提示：</i>
         <p>找到系统任务栏图标->点击鼠标右键->找到“服务器”->点击“扫描屏幕上的二维码...”</p>
-
-        <input id="text" type="text" value="chacha20:password@hostname:1234" style="width:80%"/><br/>
         <div id="qrcode"></div>
 
     @endslot
 @endcomponent
 
 @component('components.dialog')
-    @slot('id') detailModal @endslot
-    @slot('type') success   @endslot
-    @slot('title') 详细配置 @endslot
+    @slot('id') androidModal @endslot
+    @slot('type') success @endslot
+    @slot('title') Android 配置 @endslot
     @slot('body')
-        <i class="badge-info">提示：</i> <p>详细配置...”</p>
+        如果按下按钮后您的浏览器没有自动跳转，则证明您的浏览器不支持自动跳转，请手动配置
+        <div class="input-group">
+            <input id="input_ssurl" type="text" class="form-control">
+            <div class="input-group-btn">
+                <a id="ssurl" class="btn btn-success icon-cursor"></a>
+            </div>
+        </div>
     @endslot
 @endcomponent
 
 @section('script')
 
     <script src="{{ asset('js/libs/qrcode.min.js') }}"></script>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            var qrcode = new QRCode("qrcode");
+            $(".btn-secondary").click(function () {
+                var $tr = $(this).closest("tr");
+                var $name = $tr.find("#node_name").text();
+                var $domain = $tr.find("#node_domain").text();
+                var $port = $tr.find("#node_port").text();
+                var $passwd = $tr.find("#node_passwd").text();
+                var $method = $tr.find("#node_method").text();
+                $("#i_domain").text($domain);
+                $("#i_port").text($port);
+                $("#i_passwd").text($passwd);
+                $("#i_method").text($method);
+            });
 
-            function makeCode() {
-                var elText = document.getElementById("text");
-                if (!elText.value) {
-                    alert("Input a text");
-                    elText.focus();
-                    return;
-                }
-                var ssurl = "ss://" + btoa(elText.value);
-                qrcode.makeCode(ssurl);
-            }
+            $(".btn-primary").click(function () {
+                $("#qrcode").empty();
+                var $tr = $(this).closest("tr");
+                var $domain = $tr.find("#node_domain").text();
+                var $port = $tr.find("#node_port").text();
+                var $passwd = $tr.find("#node_passwd").text();
+                var $method = $tr.find("#node_method").text();
+                var qrcode = new QRCode("qrcode");
+                // method:password@hostname:port
+                {{--var $js_user = {!! json_encode($user->toArray()) !!};--}} // pass from laravel to js
+                var $ssurl = "ss://" + btoa($method + ":" + $passwd + "@" + $domain + ":" + $port);
+                qrcode.makeCode($ssurl);
+            });
 
-            makeCode();
+            $(".btn-success#btn_android").click(function () {
+                var $tr = $(this).closest("tr");
+                var $domain = $tr.find("#node_domain").text();
+                var $port = $tr.find("#node_port").text();
+                var $passwd = $tr.find("#node_passwd").text();
+                var $method = $tr.find("#node_method").text();
 
-            $("#text").on("blur", function () {
-                makeCode();
-            }).on("keydown", function (e) {
-                if (e.keyCode == 13) {
-                    makeCode();
-                }
+                var $ssurl = "ss://" + btoa($method + ":" + $passwd + "@" + $domain + ":" + $port);
+                $("#input_ssurl").val($ssurl);
+                $("a#ssurl").attr('href', $ssurl);
             });
         });
     </script>
