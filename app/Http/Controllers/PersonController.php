@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Utils\Tools;
+use App\Node;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\VarDumper;
 
@@ -11,7 +12,7 @@ class PersonController extends Controller
 
     public function index()
     {
-        return view('dashboard.person', ['data' => $this->getData()]);
+        return view('dashboard.person', $this->getData());
 
     }
 
@@ -30,6 +31,14 @@ class PersonController extends Controller
         $expired_at = '+∞';
         $data = [];
         $user = \Auth::user();
+
+        if ($user->hasRole('free')) {
+            $free_node = Node::where('type', 0)->first();
+            $user->port = $free_node->port;
+            $user->passwd = $free_node->passwd;
+            $user->method = $free_node->method;
+        }
+
         $role = $user->roles()->first();
         $role_name = $role->name;
         $display_name = $role->display_name;
@@ -39,7 +48,7 @@ class PersonController extends Controller
         } else {
             $transfer_enable = Tools::flowToGB($user->transfer_enable);
             $total_used = $user->u + $user->d;
-            $total_used = round(Tools::flowToGB($total_used),2);
+            $total_used = round(Tools::flowToGB($total_used), 2);
             if (!empty($transfer_enable)) {
                 $progress_value = $total_used / $transfer_enable * 100;
             }
@@ -58,8 +67,7 @@ class PersonController extends Controller
             }
             $data = compact($data_name);
         }
-
-        return $data;
+        return ['data' => $data, 'user' => $user,];
     }
 
 }

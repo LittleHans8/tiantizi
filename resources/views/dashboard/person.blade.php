@@ -17,9 +17,9 @@
 
                             <p>用户类型：{{ $data['display_name'] }}</p>
                             <p>月流量：{{ $data['transfer_enable'] }}G</p>
-                            <p>端口：{{ $data['port'] }}</p>
-                            <p>密码：{{ $data ['passwd'] }}</p>
-                            <p>默认加密方式：{{ $data['method'] }}</p>
+                            <p>端口：{{ $user->port }}</p>
+                            <p>密码：{{ $user->passwd }}</p>
+                            <p>默认加密方式：{{ $user->method }}</p>
                             <p>服务到期时间：{{ $data['expired_at']  }}</p>
 
                             @role('free')
