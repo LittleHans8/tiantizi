@@ -51,9 +51,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['simpleauth']], function () {
     Route::get('/buy', function () {
         return view('dashboard.buy');
     });
-    Route::get('/gift', function () {
-        return view('dashboard.gift');
-    });
+    Route::get('/gift', 'GiftCodeController@index');
+
+    Route::post('/gift', 'GiftCodeController@index');
+
     Route::get('/spread', function () {
         return view('dashboard.spread');
     });

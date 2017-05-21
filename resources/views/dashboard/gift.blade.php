@@ -14,7 +14,10 @@
                             <i class="icon-handbag"></i>礼品兑换
                         </div>
                         <div class="card-block">
-                            <form action="" method="post" class="form-horizontal ">
+                            <p>同一套餐的礼品码兑换后时间可以延长；</p>
+                            <p>如果您兑换的礼品码的流量大于当前套餐的流量，<span class="badge-danger">那么以礼品流量和时间重新开始计算；</span></p>
+                            <form action="/user/gift" method="post" class="form-horizontal ">
+                                {{ csrf_field() }}
                                 <div class="form-group row">
                                     <div class="col-md-9">
                                         <input type="text" id="gift_code" name="gift_code" class="form-control"
@@ -22,6 +25,8 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary">兑换礼品</button>
+                                {{--<button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#msgModal">兑换礼品</button>--}}
+                                <p>{{ $msg }}</p>
                             </form>
 
                         </div>
@@ -29,27 +34,15 @@
                 </div>
             </div>
         </div>
+
     </div>
 @endsection()
 
-<div class="modal fade" id="qrcodeModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel"
-     style="display: none;" aria-hidden="true">
-    <div class="modal-dialog modal-primary" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">提示</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                 <p>兑换成功/失败</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
+@component('components.dialog')
+    @slot('id') msgModal @endslot
+    @slot('type') primary@endslot
+    @slot('title') 提示 @endslot
+    @slot('body')
+        {{ $msg }}
+    @endslot
+@endcomponent

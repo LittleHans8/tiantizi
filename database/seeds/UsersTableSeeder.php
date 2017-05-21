@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         $users = factory(App\User::class, 50)->create();
         $free = Role::where('name', 'free')->get()->first();
         foreach ($users as $user) {
-            $user->attachRole($free);
+            $user->attachRole($free);// bug
         }
     }
 }
