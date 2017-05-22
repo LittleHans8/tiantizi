@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Role;
+use App\User;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Ramsey\Uuid\Converter\TimeConverterInterface;
 
 class Kernel extends ConsoleKernel
 {
@@ -19,13 +22,46 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->call(function () {
+            $this->clearTraffic();
+        })->monthlyOn(1, '00:01'); // 每个月1号凌晨1点清除用户的流量
+
+        $schedule->call(function () {
+            $this->resetUser();
+        })->dailyAt('00:01');
+    }
+
+    protected function clearTraffic()
+    {
+        $users = User::where('is_vip', 1)->get();
+        foreach ($users as $user) {
+            $user->u = 0;
+            $user->d = 0;
+        }
+    }
+
+    protected function resetUser()
+    {
+        $now_time = time();
+        $users = User::where('is_vip', 1)->get();
+        $free_role = Role::where('name', 'free')->first();
+        foreach ($users as $user) {
+            $expired_time = strtotime($user->expired_at);
+            if ($now_time >= $user->expired_at) {
+                $user->is_vip = 0;
+                $user->transfer_enable = 0;
+                $user->u = 0;
+                $user->d = 0;
+                $user->roles()->sync($free_role);
+            }
+        }
     }
 
     /**
