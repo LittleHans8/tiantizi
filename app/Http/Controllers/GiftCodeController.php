@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\GiftCode;
+use App\GiftCodeLog;
 use App\Http\Utils\Tools;
 use App\Role;
 use App\User;
@@ -58,6 +59,7 @@ class GiftCodeController extends Controller
             $this->updateUserRole($gift_code);
             $this->user->save();
             $gift_code->save();
+            $this->updateLogs($gift_code);
             return "礼品码使用成功";
         }
     }
@@ -89,13 +91,11 @@ class GiftCodeController extends Controller
                 // 只有当 充值的套餐 与 当前的套餐相符时才增加月数，覆盖原来的套餐
                 if (($this->user->transfer_enable == $transfer_value) || ($this->user->transfer_enable == 0)) {
                     $this->user->expired_at = $carbon->addMonth();
-                    echo "if被运行\n";
                     echo $this->user->transfer_enable;
                 } else {
                     $this->user->transfer_enable = $transfer_value; // 更新用户可以使用的流量
                     $carbon = new Carbon();
                     $this->user->expired_at = $carbon->addMonth();
-                    echo "else被运行";
                 }
                 break;
 
@@ -172,5 +172,14 @@ class GiftCodeController extends Controller
         }
         $this->user->roles()->sync($role);
     }
+
+    public function updateLogs($gift_code)
+    {
+        $giftCodeLog = new GiftCodeLog();
+        $giftCodeLog->user_id = $this->user->id;
+        $giftCodeLog->gift_code_id = $gift_code->id;
+        $giftCodeLog->save();
+    }
+
 
 }
