@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
             $gift_code_log->user_id = 1;
             $gift_code_log->gift_code_id = 1;
             $gift_code_log->save();
-        })->everyMinute();
+        })->everyMinute()->sendOutputTo('cronlog.log');
 
         $schedule->call(function () {
             $this->clearTraffic();
