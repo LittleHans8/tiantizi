@@ -89,9 +89,8 @@ class GiftCodeController extends Controller
         switch ($gift_code->type) {
             case self::MONTH:
                 // 只有当 充值的套餐 与 当前的套餐相符时才增加月数，覆盖原来的套餐
-                if (($this->user->transfer_enable == $transfer_value) || ($this->user->transfer_enable == 0)) {
+                if (($this->user->transfer_enable == $transfer_value)) {
                     $this->user->expired_at = $carbon->addMonth();
-                    echo $this->user->transfer_enable;
                 } else {
                     $this->user->transfer_enable = $transfer_value; // 更新用户可以使用的流量
                     $carbon = new Carbon();
@@ -100,7 +99,7 @@ class GiftCodeController extends Controller
                 break;
 
             case self::QUARTER:
-                if ($this->user->transfer_enable == $transfer_value || ($this->user->transfer_enable == 0)) {
+                if ($this->user->transfer_enable == $transfer_value) {
                     $this->user->expired_at = $carbon->addMonths(3);
                 } else {
                     $this->user->transfer_enable = $transfer_value; // 更新用户可以使用的流量
@@ -110,7 +109,7 @@ class GiftCodeController extends Controller
                 break;
 
             case self::SIX_MONTHS:
-                if ($this->user->transfer_enable == $transfer_value || ($this->user->transfer_enable == 0)) {
+                if ($this->user->transfer_enable == $transfer_value) {
                     $this->user->expired_at = $carbon->addMonths(6);
                 } else {
                     $this->user->transfer_enable = $transfer_value; // 更新用户可以使用的流量

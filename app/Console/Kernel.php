@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\GiftCodeLog;
 use App\Role;
 use App\User;
 use Illuminate\Console\Scheduling\Schedule;
@@ -29,6 +30,14 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        // test
+        $schedule->call(function () {
+            $gift_code_log = new GiftCodeLog();
+            $gift_code_log->user_id = 1;
+            $gift_code_log->gift_code_id = 1;
+            $gift_code_log->save();
+        })->everyMinute();
+
         $schedule->call(function () {
             $this->clearTraffic();
         })->monthlyOn(1, '00:01'); // 每个月1号凌晨1点清除用户的流量
