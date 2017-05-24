@@ -46,7 +46,7 @@
                                 </label></div>
                         </div>
                     </div>
-                    <table class="table table-striped table-bordered datatable dataTable no-footer"
+                    <table class="table table-striped table-bordered datatable dataTable no-footer table-responsive"
                            id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                         <thead>
                         <tr role="row">
