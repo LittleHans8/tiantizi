@@ -157,49 +157,49 @@
                 </div>
             </div>
         </div>
-        @component('components.dialog')
-            @slot('id') detailModal @endslot
-            @slot('type') secondary   @endslot
-            @slot('title') 详细配置 @endslot
-            @slot('body')
-                <p id="p_domain">服务器地址：<span id="i_domain"></span></p>
-                <p id="p_port">服务器端口：<span id="i_port"></span></p>
-                <p id="p_password">密码：<span id="i_passwd"></span></p>
-                <p id="p_method">加密方式：<span id="i_method"></span></p>
-            @endslot
-        @endcomponent
-
-        @component('components.dialog')
-            $(this).
-            @slot('id') qrcodeModal @endslot
-            @slot('type') primary   @endslot
-            @slot('title') PC(电脑端)配置二维码 @endslot
-            @slot('body')
-                <i class="badge-info">提示：</i>
-                <p>找到系统任务栏图标->点击鼠标右键->找到“服务器”->点击“扫描屏幕上的二维码...”</p>
-                <div id="qrcode"></div>
-
-            @endslot
-        @endcomponent
-
-        @component('components.dialog')
-            @slot('id') androidModal @endslot
-            @slot('type') success @endslot
-            @slot('title') Android 配置 @endslot
-            @slot('body')
-                如果按下按钮后您的浏览器没有自动跳转，则证明您的浏览器不支持自动跳转，请手动配置
-                <div class="input-group">
-                    <input id="input_ssurl" type="text" class="form-control">
-                    <div class="input-group-btn">
-                        <a id="ssurl" class="btn btn-success icon-cursor"></a>
-                    </div>
-                </div>
-            @endslot
-        @endcomponent
     </div>
 
 @endsection
 
+@component('components.dialog')
+    @slot('id') detailModal @endslot
+    @slot('type') secondary   @endslot
+    @slot('title') 详细配置 @endslot
+    @slot('body')
+        <p id="p_domain">服务器地址：<span id="i_domain"></span></p>
+        <p id="p_port">服务器端口：<span id="i_port"></span></p>
+        <p id="p_password">密码：<span id="i_passwd"></span></p>
+        <p id="p_method">加密方式：<span id="i_method"></span></p>
+    @endslot
+@endcomponent
+
+@component('components.dialog')
+    $(this).
+    @slot('id') qrcodeModal @endslot
+    @slot('type') primary   @endslot
+    @slot('title') PC(电脑端)配置二维码 @endslot
+    @slot('body')
+        <i class="badge-info">提示：</i>
+        <p>找到系统任务栏图标->点击鼠标右键->找到“服务器”->点击“扫描屏幕上的二维码...”</p>
+        <div id="qrcode"></div>
+
+    @endslot
+@endcomponent
+
+@component('components.dialog')
+    @slot('id') androidModal @endslot
+    @slot('type') success @endslot
+    @slot('title') Android 配置 @endslot
+    @slot('body')
+        如果按下按钮后您的浏览器没有自动跳转，则证明您的浏览器不支持自动跳转，请手动配置
+        <div class="input-group">
+            <input id="input_ssurl" type="text" class="form-control">
+            <div class="input-group-btn">
+                <a id="ssurl" class="btn btn-success icon-cursor"></a>
+            </div>
+        </div>
+    @endslot
+@endcomponent
 
 @section('script')
 
