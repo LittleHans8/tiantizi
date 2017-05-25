@@ -56,18 +56,18 @@
                                     aria-label="Username: activate to sort column descending" style="width: 253px;">
                                     节点名字
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                     colspan="1"
                                     aria-label="Date registered: activate to sort column ascending"
                                     style="width: 185px;">
                                     节点地址
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                     colspan="1"
                                     aria-label="Role: activate to sort column ascending" style="width: 102px;">
                                     加密方式
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
                                     colspan="1"
                                     aria-label="Status: activate to sort column ascending" style="width: 107px;">
                                     状态
@@ -94,10 +94,10 @@
                             @if(!empty($nodes))
                                 @foreach($nodes as $node)
                                     <tr role="row">
-                                        <td id="node_name" class="sorting_1">{{ $node->name }}</td>
-                                        <td id="node_domain">{{ $node->domain }}</td>
-                                        <td id="node_method">{{ $node->method  }}</td>
-                                        <td>
+                                        <td  id="node_name" class="sorting_1">{{ $node->name }}</td>
+                                        <td {{ $hidden }} id="node_domain">{{ $node->domain }}</td>
+                                        <td {{ $hidden }} id="node_method">{{ $node->method  }}</td>
+                                        <td {{ $hidden }} >
                                             <span class="badge badge-success">{{ $node->status }}</span>
                                         </td>
                                         <td>
@@ -130,9 +130,9 @@
                                 @foreach($free_nodes as $free_node)
                                     <tr role="row">
                                         <td id="node_name" class="sorting_1">{{ $free_node->name }}</td>
-                                        <td id="node_domain">{{ $free_node->domain }}</td>
-                                        <td id="node_method">{{ $free_node->method  }}</td>
-                                        <td>
+                                        <td {{ $hidden }} id="node_domain">{{ $free_node->domain }}</td>
+                                        <td {{ $hidden }} id="node_method">{{ $free_node->method  }}</td>
+                                        <td {{ $hidden }} >
                                             <span class="badge badge-success">{{ $free_node->status }}</span>
                                         </td>
                                         <td>
