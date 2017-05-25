@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\GiftCodeLog;
 use App\Role;
+use App\ScheduleLog;
 use App\User;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -28,15 +29,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        // test
-        $schedule->call(function () {
-            $gift_code_log = new GiftCodeLog();
-            $gift_code_log->user_id = 1;
-            $gift_code_log->gift_code_id = 1;
-            $gift_code_log->save();
-        })->everyMinute()->sendOutputTo('cronlog.log');
 
         $schedule->call(function () {
             $this->clearTraffic();
@@ -53,6 +45,10 @@ class Kernel extends ConsoleKernel
         foreach ($users as $user) {
             $user->u = 0;
             $user->d = 0;
+            $user->save();
+            $schedule_log = new ScheduleLog();
+            $schedule_log->text = "月末会员流量清零";
+            $schedule_log->save();
         }
     }
 
@@ -69,6 +65,11 @@ class Kernel extends ConsoleKernel
                 $user->u = 0;
                 $user->d = 0;
                 $user->roles()->sync($free_role);
+                $user->save();
+                $schedule_log = new ScheduleLog();
+                $schedule_log->text = "会员过期";
+                $schedule_log->user_id = $user->id;
+                $schedule_log->save();
             }
         }
     }

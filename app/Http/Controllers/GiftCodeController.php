@@ -67,9 +67,15 @@ class GiftCodeController extends Controller
     public function generatePort()
     {
         $ports = User::pluck('port')->toArray();
-        do {
-            $port = rand(10000, 65536);
-        } while (in_array($port, $ports));
+        $current_max_port = max($ports);
+        $port = $current_max_port + 1;
+        if ($port > 65536 || empty($current_max_port)) { // 当端口达到最大值时，重新遍历空闲的端口
+            $current_max_port = 10000;
+            do {
+                $port = $current_max_port;
+            } while (in_array($port, $ports));
+        }
+
         return $port;
     }
 

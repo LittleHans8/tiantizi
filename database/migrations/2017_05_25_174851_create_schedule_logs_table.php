@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGiftCodeLogsTable extends Migration
+class CreateScheduleLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateGiftCodeLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gift_code_logs', function (Blueprint $table) {
+        Schema::create('schedule_logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('gift_code_id');
+            $table->string('text');
+            $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
-
         });
     }
 
@@ -29,6 +28,6 @@ class CreateGiftCodeLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gift_code_logs');
+        Schema::dropIfExists('schedule_logs');
     }
 }
