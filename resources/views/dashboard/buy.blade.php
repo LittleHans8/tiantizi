@@ -32,8 +32,11 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>香港，日本，美国，台湾，新加坡，韩国</p>
-                            <button type="button" class="btn btn-outline-primary btn-block">购买套餐</button>
+                            <p>香港，日本，美国，新加坡</p>
+                            <button data-toggle="modal"
+                                    data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
+                                购买套餐
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -65,8 +68,11 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>香港，日本，美国，台湾，新加坡，韩国</p>
-                            <button type="button" class="btn btn-outline-primary btn-block">购买套餐</button>
+                            <p>香港，日本，美国，新加坡</p>
+                            <button data-toggle="modal"
+                                    data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
+                                购买套餐
+                            </button>
                         </div>
                     </div>
 
@@ -99,7 +105,10 @@
                             <p>多国机房：多条线路可切换</p>
                             <hr>
                             <p>香港，日本，美国，新加坡</p>
-                            <button type="button" class="btn btn-outline-primary btn-block">购买套餐</button>
+                            <button data-toggle="modal"
+                                    data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
+                                购买套餐
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -130,14 +139,36 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>香港，日本，美国，台湾，新加坡，韩国</p>
-                            <button type="button" class="btn btn-outline-primary btn-block">购买套餐</button>
+                            <p>香港，日本，美国，新加坡</p>
+                            <button data-toggle="modal"
+                                    data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
+                                购买套餐
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 @endsection()
+
+@component('components.dialog_jump_to')
+    @slot('id') jump_to_buy @endslot
+    @slot('type') primary   @endslot
+    @slot('title') 购买须知 @endslot
+    @slot('body')
+        <p style="color: red;">以下操作涉及您切身利益，请认真查看</p>
+        <p>每一个礼品码都代表着固定的流量以及使用时间；</p>
+        <p>同一套餐的礼品码兑换后时间可以延长；</p>
+        <p>如果您兑换的礼品码的流量大于当前套餐的流量，<span class="badge-danger">那么以当前礼品码的流量和时间重新开始计算；</span></p>
+    @endslot
+
+    @slot('jump_to_href')
+        http://t.cn/RShi06g
+    @endslot
+
+    @slot('jump_to_title')
+        前往购买
+    @endslot
+@endcomponent
