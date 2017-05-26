@@ -18,154 +18,157 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive">
-            <div class="card" style="margin-left: 15px;">
-                <div class="card-header">
-                    <i class="icon-paper-plane"></i>节点列表
-                    <div class="card-actions">
-                        <a href="http://l-lin.github.io/angular-datatables/#/gettingStarted">
-                            <small class="text-muted">天梯子</small>
-                        </a>
-                    </div>
+
+        <div class="card" style="margin-left: 15px;">
+            <div class="card-header">
+                <i class="icon-paper-plane"></i>节点列表
+                <div class="card-actions">
+                    <a href="http://l-lin.github.io/angular-datatables/#/gettingStarted">
+                        <small class="text-muted">天梯子</small>
+                    </a>
                 </div>
-                <div class="card-block">
-                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap4 no-footer">
-                        <div class="row mb-1">
-                            <div class="col-sm-6">
-                                <div class="dataTables_length" id="DataTables_Table_0_length">
-                                    <label>
-                                        选择您的运营商&nbsp;
-                                        <select
-                                                name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
-                                                class="form-control input-sm">
-                                            <option value="0">电信</option>
-                                            <option value="1">联通</option>
-                                            <option value="2">移动</option>
-                                            <option value="3">其他</option>
-                                        </select>
-                                    </label></div>
-                            </div>
+            </div>
+            <div class="card-block">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap4 no-footer">
+                    <div class="row mb-1">
+                        <div class="col-sm-6">
+                            <div class="dataTables_length" id="DataTables_Table_0_length">
+                                <label>
+                                    选择您的运营商&nbsp;
+                                    <select
+                                            name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+                                            class="form-control input-sm">
+                                        <option value="0">电信</option>
+                                        <option value="1">联通</option>
+                                        <option value="2">移动</option>
+                                        <option value="3">其他</option>
+                                    </select>
+                                </label></div>
                         </div>
-
-                        <table class="table table-striped table-bordered table-condensed"
-                               id="DataTables_Table_0">
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1" aria-sort="ascending"
-                                    aria-label="Username: activate to sort column descending" style="width: 253px;">
-                                    节点名字
-                                </th>
-                                <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1"
-                                    aria-label="Date registered: activate to sort column ascending"
-                                    style="width: 185px;">
-                                    节点地址
-                                </th>
-                                <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1"
-                                    aria-label="Role: activate to sort column ascending" style="width: 102px;">
-                                    加密方式
-                                </th>
-                                <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1"
-                                    aria-label="Status: activate to sort column ascending" style="width: 107px;">
-                                    状态
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1"
-                                    aria-label="Actions: activate to sort column ascending" style="width: 249px;">
-                                    连接
-                                </th>
-                                <th hidden class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1"
-                                    aria-label="Actions: activate to sort column ascending">
-                                    port
-                                </th>
-                                <th hidden class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                    colspan="1"
-                                    aria-label="Actions: activate to sort column ascending">
-                                    passwd
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            @if(!empty($nodes))
-                                @foreach($nodes as $node)
-                                    <tr role="row">
-                                        <td  id="node_name" class="sorting_1">{{ $node->name }}</td>
-                                        <td {{ $hidden }} id="node_domain">{{ $node->domain }}</td>
-                                        <td {{ $hidden }} id="node_method">{{ $node->method  }}</td>
-                                        <td {{ $hidden }} >
-                                            <span class="badge badge-success">{{ $node->status }}</span>
-                                        </td>
-                                        <td>
-
-                                            <a id="btn_detail" class="btn btn-secondary" href="#"
-                                               data-id="{{ $node->id }}"
-                                               data-toggle="modal" data-target="#detailModal">
-                                                <i class="fa fa-search-plus"></i>
-                                            </a>
-
-                                            <a id="btn_qrcode" class="btn btn-primary" href="#"
-                                               data-id="{{ $node->id }}"
-                                               data-toggle="modal"
-                                               data-target="#qrcodeModal">
-                                                <i class="fa fa-qrcode"></i>
-                                            </a>
-
-                                            <a id="btn_android" class="btn btn-success" href="#" data-toggle="modal"
-                                               data-target="#androidModal">
-                                                <i class="fa fa-android"></i>
-                                            </a>
-                                        </td>
-                                        <td hidden id="node_port">{{ $user->port }}</td>
-                                        <td hidden id="node_passwd">{{ $user->passwd }}</td>
-                                    </tr>
-                                @endforeach
-                            @endif
-
-                            @if(!empty($free_nodes))
-                                @foreach($free_nodes as $free_node)
-                                    <tr role="row">
-                                        <td id="node_name" class="sorting_1">{{ $free_node->name }}</td>
-                                        <td {{ $hidden }} id="node_domain">{{ $free_node->domain }}</td>
-                                        <td {{ $hidden }} id="node_method">{{ $free_node->method  }}</td>
-                                        <td {{ $hidden }} >
-                                            <span class="badge badge-success">{{ $free_node->status }}</span>
-                                        </td>
-                                        <td>
-
-                                            <a id="btn_detail" class="btn btn-secondary" href="#"
-                                               data-toggle="modal" data-target="#detailModal">
-                                                <i class="fa fa-search-plus"></i>
-                                            </a>
-
-                                            <a id="btn_qrcode" class="btn btn-primary" href="#"
-                                               data-toggle="modal"
-                                               data-target="#qrcodeModal">
-                                                <i class="fa fa-qrcode"></i>
-                                            </a>
-
-                                            <a id="btn_android" class="btn btn-success" href="#" data-toggle="modal"
-                                               data-target="#androidModal">
-                                                <i class="fa fa-android"></i>
-                                            </a>
-                                        </td>
-                                        <td hidden id="node_port">{{ $free_node->port }}</td>
-                                        <td hidden id="node_passwd">{{ $free_node->passwd }}</td>
-                                    </tr>
-                                @endforeach
-                            @endif
-
-                            </tbody>
-                        </table>
-
                     </div>
+
+                    <table class="table table-striped table-bordered"
+                           id="DataTables_Table_0">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="1" aria-sort="ascending"
+                                aria-label="Username: activate to sort column descending" style="width: 253px;">
+                                节点名字
+                            </th>
+                            <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                rowspan="1"
+                                colspan="1"
+                                aria-label="Date registered: activate to sort column ascending"
+                                style="width: 185px;">
+                                节点地址
+                            </th>
+                            <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                rowspan="1"
+                                colspan="1"
+                                aria-label="Role: activate to sort column ascending" style="width: 102px;">
+                                加密方式
+                            </th>
+                            <th {{ $hidden }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                rowspan="1"
+                                colspan="1"
+                                aria-label="Status: activate to sort column ascending" style="width: 107px;">
+                                状态
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="1"
+                                aria-label="Actions: activate to sort column ascending" style="width: 249px;">
+                                连接
+                            </th>
+                            <th hidden class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="1"
+                                aria-label="Actions: activate to sort column ascending">
+                                port
+                            </th>
+                            <th hidden class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                colspan="1"
+                                aria-label="Actions: activate to sort column ascending">
+                                passwd
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @if(!empty($nodes))
+                            @foreach($nodes as $node)
+                                <tr role="row">
+                                    <td id="node_name" class="sorting_1">{{ $node->name }}</td>
+                                    <td {{ $hidden }} id="node_domain">{{ $node->domain }}</td>
+                                    <td {{ $hidden }} id="node_method">{{ $node->method  }}</td>
+                                    <td {{ $hidden }} >
+                                        <span class="badge badge-success">{{ $node->status }}</span>
+                                    </td>
+                                    <td>
+
+                                        <a id="btn_detail" class="btn btn-secondary" href="#"
+                                           data-id="{{ $node->id }}"
+                                           data-toggle="modal" data-target="#detailModal">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+
+                                        <a id="btn_qrcode" class="btn btn-primary" href="#"
+                                           data-id="{{ $node->id }}"
+                                           data-toggle="modal"
+                                           data-target="#qrcodeModal">
+                                            <i class="fa fa-qrcode"></i>
+                                        </a>
+
+                                        <a id="btn_android" class="btn btn-success" href="#" data-toggle="modal"
+                                           data-target="#androidModal">
+                                            <i class="fa fa-android"></i>
+                                        </a>
+                                    </td>
+                                    <td hidden id="node_port">{{ $user->port }}</td>
+                                    <td hidden id="node_passwd">{{ $user->passwd }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+
+                        @if(!empty($free_nodes))
+                            @foreach($free_nodes as $free_node)
+                                <tr role="row">
+                                    <td id="node_name" class="sorting_1">{{ $free_node->name }}</td>
+                                    <td {{ $hidden }} id="node_domain">{{ $free_node->domain }}</td>
+                                    <td {{ $hidden }} id="node_method">{{ $free_node->method  }}</td>
+                                    <td {{ $hidden }} >
+                                        <span class="badge badge-success">{{ $free_node->status }}</span>
+                                    </td>
+                                    <td>
+
+                                        <a id="btn_detail" class="btn btn-secondary" href="#"
+                                           data-toggle="modal" data-target="#detailModal">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>
+
+                                        <a id="btn_qrcode" class="btn btn-primary" href="#"
+                                           data-toggle="modal"
+                                           data-target="#qrcodeModal">
+                                            <i class="fa fa-qrcode"></i>
+                                        </a>
+
+                                        <a id="btn_android" class="btn btn-success" href="#" data-toggle="modal"
+                                           data-target="#androidModal">
+                                            <i class="fa fa-android"></i>
+                                        </a>
+                                    </td>
+                                    <td hidden id="node_port">{{ $free_node->port }}</td>
+                                    <td hidden id="node_passwd">{{ $free_node->passwd }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
+
     </div>
 
 @endsection

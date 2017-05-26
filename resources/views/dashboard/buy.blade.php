@@ -18,7 +18,7 @@
                         <div class="card card-inverse card-info">
                             <div class="card-block">
                                 <div class="h4 text-md-center">略小流量套餐</div>
-                                <div class="h3 text-md-center">￥9.9
+                                <div class="h3 text-md-center">￥6.6
                                     <span>/月</span>
                                 </div>
                                 <div class="text-md-center">
@@ -51,7 +51,7 @@
                         <div class="card card-inverse card-info">
                             <div class="card-block">
                                 <div class="h4 text-md-center">小流量版</div>
-                                <div class="h3 text-md-center">￥14.99
+                                <div class="h3 text-md-center">￥9.9
                                     <span>/月</span>
                                 </div>
                                 <div class="text-md-center">
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="card-block">
-                            <p>月流量：20G</p>
+                            <p>月流量：25G</p>
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
@@ -84,7 +84,7 @@
                         <div class="card card-inverse card-info">
                             <div class="card-block">
                                 <div class="h4 text-md-center">中流量版</div>
-                                <div class="h3 text-md-center">￥19.99
+                                <div class="h3 text-md-center">￥19.9
                                     <span>/月</span>
                                 </div>
                                 <div class="text-md-center">
@@ -98,7 +98,7 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>香港，日本，美国，台湾，新加坡，韩国</p>
+                            <p>香港，日本，美国，新加坡</p>
                             <button type="button" class="btn btn-outline-primary btn-block">购买套餐</button>
                         </div>
                     </div>
