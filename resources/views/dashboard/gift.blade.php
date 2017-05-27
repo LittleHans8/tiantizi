@@ -15,7 +15,7 @@
                         </div>
                         <div class="card-block">
                             <p>同一套餐的礼品码兑换后时间可以延长；</p>
-                            <p>如果您兑换的礼品码的流量大于当前套餐的流量，<span class="badge-danger">那么以礼品流量和时间重新开始计算；</span></p>
+                            <p>如果您兑换的礼品码的流量大于当前套餐的流量，<span class="badge-danger">那么以兑换的礼品流量和时间重新开始计算；</span></p>
                             <form action="/user/gift" method="post" class="form-horizontal ">
                                 {{ csrf_field() }}
                                 <div class="form-group row">
