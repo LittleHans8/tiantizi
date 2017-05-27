@@ -22,14 +22,7 @@
         <div class="intro__content" style="padding-top: 56.6795px;">
             <div class="intro__logo animate-scroll" data-animate-scroll="">
                 <!--logo-->
-                @if (Route::has('login'))
-                        @if (Auth::check())
-                            <a href="{{ url('/home') }}">用户中心</a>
-                        @else
-                            <a href="{{ url('/login') }}">登陆</a>
-                            <a href="{{ url('/register') }}">注册</a>
-                        @endif
-                @endif
+
 
             </div>
             <div class="intro__title animate-scroll" data-animate-scroll="">
@@ -41,7 +34,8 @@
                 <br>
                 <small class="text-muted ">你说你喜欢风,但是在刮风的时候你却关上窗户</small>
                 <br>
-                <small class="text-muted ">这就是为什么我会害怕你 说想要自由 却不科学上网</small>
+                <small class="text-muted ">这就是为什么我会害怕你说想要自由</small><br>
+                <small class="text-muted">却不科学上网</small>
                 <br>
             </div>
         </div>
@@ -52,10 +46,22 @@
         {{--</button>--}}
         {{--</div>--}}
 
-        <div class="text-md-center" style="margin-top: 66px">
-            <a href="/register" class="btn btn-outline-primary">
-                加 入 我 们
-            </a>
+        <div class="text-center" style="margin-top: 33px">
+
+            @if (Route::has('login'))
+                @if (Auth::check())
+                    <a class="btn btn-outline-primary" href="{{ url('/home') }}" target="_blank">用户中心</a>
+                @else
+                    <a href="/login" target="_blank" class="btn btn-outline-primary">
+                        登 陆
+                    </a>
+
+                    <a href="/register" target="_blank" class="btn btn-outline-primary">
+                        发现自由
+                    </a>
+                @endif
+            @endif
+
         </div>
 
 
