@@ -47,7 +47,10 @@ class GiftCodesSeeder extends Seeder
         $this->generateCode(10, self::YEAR, self::BIG_TRANSFER_VALUE);
 
         // test schedule
-        $this->generateCode(10, self::ONE_DAY, self::TINY_TRANSFER_VALUE);
+        $this->generateCode(50, self::ONE_DAY, self::TINY_TRANSFER_VALUE);
+        $this->generateCode(50, self::ONE_DAY, self::SMALL_TRANSFER_VALUE);
+        $this->generateCode(50, self::ONE_DAY, self::MEDIUM_TRANSFER_VALUE);
+        $this->generateCode(50, self::ONE_DAY, self::BIG_TRANSFER_VALUE);
 
     }
 
