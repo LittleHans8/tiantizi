@@ -59,7 +59,7 @@ class Kernel extends ConsoleKernel
         $free_role = Role::where('name', 'free')->first();
         foreach ($users as $user) {
             $expired_time = strtotime($user->expired_at);
-            if ($now_time >= $user->expired_at) {
+            if ($now_time >= $expired_time) {
                 $user->is_vip = 0;
                 $user->transfer_enable = 0;
                 $user->u = 0;
