@@ -21,9 +21,12 @@ class GiftCodeController extends Controller
     const YEAR = 3;
 
     const TINY_TRANSFER_VALUE = 10;
-    const SMALL_TRANSFER_VALUE = 20;
+    const SMALL_TRANSFER_VALUE = 30;
     const MEDIUM_TRANSFER_VALUE = 100;
     const BIG_TRANSFER_VALUE = 200;
+
+    // test FLAG TODO DELETE
+    const ONE_DAY = 11;
 
     public $user;
 
@@ -124,12 +127,22 @@ class GiftCodeController extends Controller
                 }
                 break;
             case self::YEAR:
-                if ($this->user->transfer_enable == $transfer_value || ($this->user->transfer_enable == 0)) {
+                if ($this->user->transfer_enable == $transfer_value) {
                     $this->user->expired_at = $carbon->addYear();
                 } else {
                     $this->user->transfer_enable = $transfer_value; // 更新用户可以使用的流量
                     $carbon = new Carbon();
                     $this->user->expired_at = $carbon->addYear();
+                }
+                break;
+
+            case self::ONE_DAY:
+                if ($this->user->transfer_enable == $transfer_value) {
+                    $this->user->expired_at = $carbon->addDay();
+                } else {
+                    $this->user->transfer_enable = $transfer_value; // 更新用户可以使用的流量
+                    $carbon = new Carbon();
+                    $this->user->expired_at = $carbon->addDay();
                 }
                 break;
         }

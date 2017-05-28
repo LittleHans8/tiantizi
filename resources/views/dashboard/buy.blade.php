@@ -18,9 +18,13 @@
                         <div class="card card-inverse card-info">
                             <div class="card-block">
                                 <div class="h4 text-md-center">略小流量套餐</div>
-                                <div class="h3 text-md-center">￥6.6
+                                <div class="h4 text-md-center">￥6.66
                                     <span>/月</span>
                                 </div>
+                                <div class="h3 text-md-center">￥70.00
+                                    <span>/年</span>
+                                </div>
+
                                 <div class="text-md-center">
                                     <small class="text-muted ">备注：不经常看视频，下载东西...</small>
                                 </div>
@@ -54,9 +58,14 @@
                         <div class="card card-inverse card-info">
                             <div class="card-block">
                                 <div class="h4 text-md-center">小流量版</div>
-                                <div class="h3 text-md-center">￥9.9
+
+                                <div class="h4 text-md-center">￥9.99
                                     <span>/月</span>
                                 </div>
+                                <div class="h3 text-md-center">￥100.00
+                                    <span>/年</span>
+                                </div>
+
                                 <div class="text-md-center">
                                     <small class="text-muted ">备注：日常使用足矣...</small>
                                 </div>
@@ -64,7 +73,7 @@
                         </div>
 
                         <div class="card-block">
-                            <p>月流量：25G</p>
+                            <p>月流量：30G</p>
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
@@ -90,11 +99,14 @@
                         <div class="card card-inverse card-info">
                             <div class="card-block">
                                 <div class="h4 text-md-center">中流量版</div>
-                                <div class="h3 text-md-center">￥19.9
+                                <div class="h4 text-md-center">￥19.9
                                     <span>/月</span>
                                 </div>
+                                <div class="h3 text-md-center">￥200.00
+                                    <span>/年</span>
+                                </div>
                                 <div class="text-md-center">
-                                    <small class="text-muted ">备注：日常追剧，下载东西...</small>
+                                    <small class="text-muted ">备注：经常追剧，下载东西...</small>
                                 </div>
                             </div>
                         </div>
@@ -125,8 +137,11 @@
                         <div class="card card-inverse card-info">
                             <div class="card-block">
                                 <div class="h4 text-md-center">大流量版</div>
-                                <div class="h3 text-md-center">￥29.99
+                                <div class="h4 text-md-center">￥29.99
                                     <span>/月</span>
+                                </div>
+                                <div class="h3 text-md-center">￥290.00
+                                    <span>/年</span>
                                 </div>
                                 <div class="text-md-center">
                                     <small class="text-muted ">备注：经常追剧，下载东西...</small>

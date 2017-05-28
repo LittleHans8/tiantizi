@@ -183,9 +183,9 @@
 </div>
 
 <footer class="app-footer">
-    <a href="https://genesisui.com">天梯子</a> © 2017
+    <a href="https://www.tiantizi.com" target="_blank">天梯子</a> © 2017
     <span class="float-right">
-            Powered by <a href="https://genesisui.com">天行网络服务</a>
+            Powered by <a href="#">天行网络服务</a>
         </span>
 </footer>
 

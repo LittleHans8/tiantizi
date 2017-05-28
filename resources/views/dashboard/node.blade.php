@@ -28,24 +28,25 @@
                     </a>
                 </div>
             </div>
+
             <div class="card-block">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap4 no-footer">
-                    <div class="row mb-1">
-                        <div class="col-sm-6">
-                            <div class="dataTables_length" id="DataTables_Table_0_length">
-                                <label>
-                                    选择您的运营商&nbsp;
-                                    <select
-                                            name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
-                                            class="form-control input-sm">
-                                        <option value="0">电信</option>
-                                        <option value="1">联通</option>
-                                        <option value="2">移动</option>
-                                        <option value="3">其他</option>
-                                    </select>
-                                </label></div>
-                        </div>
-                    </div>
+                    {{--<div class="row mb-1">--}}
+                        {{--<div class="col-sm-6">--}}
+                            {{--<div class="dataTables_length" id="DataTables_Table_0_length">--}}
+                                {{--<label>--}}
+                                    {{--选择您的运营商&nbsp;--}}
+                                    {{--<select--}}
+                                            {{--name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"--}}
+                                            {{--class="form-control input-sm">--}}
+                                        {{--<option value="0">电信</option>--}}
+                                        {{--<option value="1">联通</option>--}}
+                                        {{--<option value="2">移动</option>--}}
+                                        {{--<option value="3">其他</option>--}}
+                                    {{--</select>--}}
+                                {{--</label></div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
                     <table class="table table-striped table-bordered"
                            id="DataTables_Table_0">
@@ -167,6 +168,7 @@
 
                 </div>
             </div>
+
         </div>
 
     </div>
@@ -189,9 +191,9 @@
     $(this).
     @slot('id') qrcodeModal @endslot
     @slot('type') primary   @endslot
-    @slot('title') PC(电脑端)配置二维码 @endslot
+    @slot('title') 配置二维码 @endslot
     @slot('body')
-        <i class="badge-info">提示：</i>
+        <i class="badge-info">Windows：</i>
         <p>找到系统任务栏图标->点击鼠标右键->找到“服务器”->点击“扫描屏幕上的二维码...”</p>
         <div id="qrcode"></div>
 

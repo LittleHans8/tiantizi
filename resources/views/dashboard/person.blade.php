@@ -76,7 +76,7 @@
                             <i class="icon-bulb"></i>公告
                         </div>
                         <div class="card-block">
-                            内测期间所有套餐享8折优惠:-)
+                            内测期间所有套餐均已优惠:-)
                         </div>
                     </div>
                 </div>

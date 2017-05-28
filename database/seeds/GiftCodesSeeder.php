@@ -12,9 +12,12 @@ class GiftCodesSeeder extends Seeder
     const YEAR = 3;
 
     const TINY_TRANSFER_VALUE = 10;
-    const SMALL_TRANSFER_VALUE = 20;
+    const SMALL_TRANSFER_VALUE = 30;
     const MEDIUM_TRANSFER_VALUE = 100;
     const BIG_TRANSFER_VALUE = 200;
+
+    // test FLAG TODO DELETE
+    const ONE_DAY = 11;
 
     /**
      * Run the database seeds.
@@ -43,7 +46,16 @@ class GiftCodesSeeder extends Seeder
         $this->generateCode(10, self::SIX_MONTHS, self::BIG_TRANSFER_VALUE);
         $this->generateCode(10, self::YEAR, self::BIG_TRANSFER_VALUE);
 
+        // test schedule
+        $this->generateCode(10, self::ONE_DAY, self::TINY_TRANSFER_VALUE);
+
     }
+
+    public function manyGenerate($number)
+    {
+
+    }
+
 
     public function generateCode($number = 10, $type = self::MONTH, $transfer_value = self::TINY_TRANSFER_VALUE)
     {
