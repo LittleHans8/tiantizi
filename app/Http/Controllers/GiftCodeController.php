@@ -200,4 +200,26 @@ class GiftCodeController extends Controller
     }
 
 
+
+    public function generateCode($number = 1, $type = self::MONTH, $transfer_value = self::TINY_TRANSFER_VALUE)
+    {
+        $codes = array();
+        for ($i = 1; $i <= $number; $i++) {
+            $str_1 = uniqid("Luckytiantizi");
+            $str_2 = str_random(8);
+            $str_3 = str_random(12);
+            $str_4 = str_random(3);
+            $code = $str_1 . "|" . $str_2 . $str_3 . $str_4;
+            array_push($codes, $code);
+        }
+        foreach ($codes as $code) {
+            $gift = new GiftCode();
+            $gift->code = $code;
+            $gift->type = $type;
+            $gift->transfer_value = $transfer_value;
+            $gift->save();
+        }
+        return $codes;
+    }
+
 }

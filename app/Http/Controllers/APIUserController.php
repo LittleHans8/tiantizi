@@ -13,7 +13,7 @@ class APIUserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::where('is_vip',1)->get(); // vip 用户才返回数据给服务器
         return ApiStatus::status(null, 'ok', $users);
     }
 

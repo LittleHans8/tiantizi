@@ -120,6 +120,14 @@
                     <a class="nav-link" href="#"><i class="icon-diamond"></i>定制中心</a>
                 </li>
 
+                @role('admin')
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/gift"><i class="icon-diamond"></i>礼品码管理</a>
+                </li>
+                @endrole()
+
+
+
                 <li class="divider"></li>
                 {{--TODO--}}
                 {{--<li class="nav-title">--}}

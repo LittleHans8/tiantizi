@@ -60,10 +60,15 @@ Route::group(['prefix' => 'user', 'middleware' => ['simpleauth']], function () {
     });
 });
 
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/gift', 'Admin\GiftCodeController@index');
+});
+
+
 Route::get('/home', 'PersonController@index')
     ->middleware(RedirectIfNotAuthenticated::class);
 
-
+//Entrust::routeNeedsRole('admin/', 'admin');
 //Route::get('/home', 'HomeController@index');
 
 //Route::get('/register',function () {
