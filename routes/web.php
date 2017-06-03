@@ -68,6 +68,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/home', 'PersonController@index')
     ->middleware(RedirectIfNotAuthenticated::class);
 
+Route::get('/codes', 'CodesController@index');
+
 //Entrust::routeNeedsRole('admin/', 'admin');
 //Route::get('/home', 'HomeController@index');
 
