@@ -31,4 +31,13 @@ class NodeController extends Controller
 
         return view('dashboard.node', ['user' => $user, 'nodes' => $nodes, 'free_nodes' => $free_nodes, 'hidden' => $hidden]);
     }
+
+    public function createConfig()
+    {
+        $user =  Auth::user();
+
+        if ($user->is_vip) {
+
+        }
+    }
 }

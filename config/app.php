@@ -165,6 +165,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class, // 用户权限控制
         Jenssegers\Agent\AgentServiceProvider::class, // 设备识别
+        Chumper\Zipper\ZipperServiceProvider::class, // zip 操作
         /*
          * Package Service Providers...
          */
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class, // 注册别名后，运行命令 'php artisan vendor:publish'
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Zipper' => Chumper\Zipper\Zipper::class,
 
     ],
 
