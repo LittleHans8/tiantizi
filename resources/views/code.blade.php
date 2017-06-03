@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ env('APP_NAME','天梯子-礼品码方法页') }}</title>
+    <title>{{ env('APP_NAME','天梯子-礼品码页') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
