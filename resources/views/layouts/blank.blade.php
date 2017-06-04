@@ -107,6 +107,10 @@
                     <a class="nav-link" href="{{ url('/user/gift')  }}"><i class="icon-handbag"></i>礼品兑换</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/user/client')  }}"><i class="icon-screen-desktop"></i>客户端</a>
+                </li>
+
                 <li class="divider"></li>
                 <li class="nav-title">
                     <i class="icon-target"></i>&nbsp; 其它

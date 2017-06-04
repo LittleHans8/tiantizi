@@ -37,7 +37,7 @@ class NodeController extends Controller
         $user =  Auth::user();
 
         if ($user->is_vip) {
-
+            $json = json_encode(file_get_contents(), true);
         }
     }
 }
