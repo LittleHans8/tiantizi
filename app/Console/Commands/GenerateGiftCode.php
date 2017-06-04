@@ -22,14 +22,14 @@ class GenerateGiftCode extends Command
      *
      * @var string
      */
-    protected $signature = 'make:code {--number=100} {{--type=0}} {{--value=10}}';
+    protected $signature = 'make:code {--number=100} {--type=0} {--value=10}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'generate gift code number into database';
+    protected $description = 'Generate gift code into database';
 
     /**
      * Create a new command instance.

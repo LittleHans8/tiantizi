@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\GenerateGiftCode::class,
-
+        Commands\CreateAdmin::class,
     ];
 
     /**
