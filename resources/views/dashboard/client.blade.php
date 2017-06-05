@@ -1,6 +1,6 @@
 @extends('layouts.blank')
 
-@section('title','天梯子-客户端下载')
+@section('title','客户端下载')
 
 @section('main')
 

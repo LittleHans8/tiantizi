@@ -12,6 +12,7 @@ class CreateNodesTable extends Migration
             $table->increments('id');
             $table->string('name', 128);
             $table->tinyInteger('is_show')->default(1);// 1 显示，0 隐藏
+            $table->tinyInteger('sort')->default(0);
             $table->string('domain', 128);// 节点的地址
             $table->string('method', 64)->default('chacha20');
             $table->tinyInteger('is_custom_method')->default(1);
