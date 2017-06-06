@@ -26,25 +26,25 @@ class GiftCodesSeeder extends Seeder
      */
     public function run()
     {
-        $this->generateCode(10, self::MONTH, self::TINY_TRANSFER_VALUE);
-        $this->generateCode(10, self::QUARTER, self::TINY_TRANSFER_VALUE);
-        $this->generateCode(10, self::SIX_MONTHS, self::TINY_TRANSFER_VALUE);
-        $this->generateCode(10, self::YEAR, self::TINY_TRANSFER_VALUE);
+        $this->generateCode(1000, self::MONTH, self::TINY_TRANSFER_VALUE);
+        $this->generateCode(1000, self::QUARTER, self::TINY_TRANSFER_VALUE);
+        $this->generateCode(1000, self::SIX_MONTHS, self::TINY_TRANSFER_VALUE);
+        $this->generateCode(1000, self::YEAR, self::TINY_TRANSFER_VALUE);
 
-        $this->generateCode(10, self::MONTH, self::SMALL_TRANSFER_VALUE);
-        $this->generateCode(10, self::QUARTER, self::SMALL_TRANSFER_VALUE);
-        $this->generateCode(10, self::SIX_MONTHS, self::SMALL_TRANSFER_VALUE);
-        $this->generateCode(10, self::YEAR, self::SMALL_TRANSFER_VALUE);
+        $this->generateCode(1000, self::MONTH, self::SMALL_TRANSFER_VALUE);
+        $this->generateCode(1000, self::QUARTER, self::SMALL_TRANSFER_VALUE);
+        $this->generateCode(1000, self::SIX_MONTHS, self::SMALL_TRANSFER_VALUE);
+        $this->generateCode(1000, self::YEAR, self::SMALL_TRANSFER_VALUE);
 
-        $this->generateCode(10, self::MONTH, self::MEDIUM_TRANSFER_VALUE);
-        $this->generateCode(10, self::QUARTER, self::MEDIUM_TRANSFER_VALUE);
-        $this->generateCode(10, self::SIX_MONTHS, self::MEDIUM_TRANSFER_VALUE);
-        $this->generateCode(10, self::YEAR, self::MEDIUM_TRANSFER_VALUE);
+        $this->generateCode(100, self::MONTH, self::MEDIUM_TRANSFER_VALUE);
+        $this->generateCode(100, self::QUARTER, self::MEDIUM_TRANSFER_VALUE);
+        $this->generateCode(100, self::SIX_MONTHS, self::MEDIUM_TRANSFER_VALUE);
+        $this->generateCode(100, self::YEAR, self::MEDIUM_TRANSFER_VALUE);
 
-        $this->generateCode(10, self::MONTH, self::BIG_TRANSFER_VALUE);
-        $this->generateCode(10, self::QUARTER, self::BIG_TRANSFER_VALUE);
-        $this->generateCode(10, self::SIX_MONTHS, self::BIG_TRANSFER_VALUE);
-        $this->generateCode(10, self::YEAR, self::BIG_TRANSFER_VALUE);
+        $this->generateCode(100, self::MONTH, self::BIG_TRANSFER_VALUE);
+        $this->generateCode(100, self::QUARTER, self::BIG_TRANSFER_VALUE);
+        $this->generateCode(100, self::SIX_MONTHS, self::BIG_TRANSFER_VALUE);
+        $this->generateCode(100, self::YEAR, self::BIG_TRANSFER_VALUE);
 
         // test schedule
         $this->generateCode(50, self::ONE_DAY, self::TINY_TRANSFER_VALUE);
