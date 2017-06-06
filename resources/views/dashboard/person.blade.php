@@ -76,7 +76,9 @@
                             <i class="icon-bulb"></i>公告
                         </div>
                         <div class="card-block">
-                            内测期间所有套餐均已优惠:-)
+                            <p>内测期间所有套餐均已优惠:-)</p>
+                            <p>有任何问题请联系qq哦</p>
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3287229704&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:3287229704:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
                         </div>
                     </div>
                 </div>

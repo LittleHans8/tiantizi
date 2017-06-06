@@ -65,6 +65,17 @@
 </main>
 
 <script src="{{ asset('js/libs/main.js') }}"></script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?7220a80ac32597f70f6a5c2693216c7e";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 </body>
 <div></div>
 </html>
