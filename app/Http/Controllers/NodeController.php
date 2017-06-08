@@ -19,7 +19,7 @@ class NodeController extends Controller
         $agent = new Agent();
         $user = Auth::user();
 
-        $nodes = Node::where(self::TYPE, self::VIP)->get();
+        $nodes = Node::where(self::TYPE, self::VIP)->orderBy('sort','asc')->get();
         $free_nodes = Node::where(self::TYPE, self::FREE)->get();
         if ($user->hasRole('free')) {
             $nodes = array();
