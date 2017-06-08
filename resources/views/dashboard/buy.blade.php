@@ -36,7 +36,7 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>新加波(CN2)，美国</p>
+                            <p>新加波(CN2电信优化)，美国(电信优化)，日本</p>
                             <button data-toggle="modal"
                                     data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
                                 购买套餐
@@ -77,7 +77,7 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>新加波(CN2)，美国</p>
+                            <p>新加波(CN2电信优化)，美国(电信优化)，日本</p>
                             <button data-toggle="modal"
                                     data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
                                 购买套餐
@@ -116,7 +116,7 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>新加波(CN2)，美国</p>
+                            <p>新加波(CN2电信优化)，美国(电信优化)，日本</p>
                             <button data-toggle="modal"
                                     data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
                                 购买套餐
@@ -154,7 +154,7 @@
                             <p>在线人数：仅限个人使用</p>
                             <p>多国机房：多条线路可切换</p>
                             <hr>
-                            <p>新加波(CN2)，美国</p>
+                            <p>新加波(CN2电信优化)，美国(电信优化)，日本</p>
                             <button data-toggle="modal"
                                     data-target="#jump_to_buy" type="button" class="btn btn-outline-primary btn-block">
                                 购买套餐
