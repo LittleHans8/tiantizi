@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\GiftCodeLog;
+use App\NodeOnlineLog;
 use App\Role;
 use App\ScheduleLog;
 use App\User;
@@ -31,6 +32,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+
+        $schedule->call(function () {
+             $this->randomOnlineUser();
+        })->everyTenMinutes();
 
         $schedule->call(function () {
             $this->clearTraffic();
@@ -74,6 +79,23 @@ class Kernel extends ConsoleKernel
                 $schedule_log->save();
             }
         }
+    }
+
+    protected function randomOnlineUser()
+    {
+        $H = date('H');
+        if (4 <= $H && 10 >= $H) { // 凌晨 4点到早上10点
+            $online_count = rand(1, 10);
+        } elseif ($H > 10 && $H <= 17) { // 早上十点到晚上5点
+            $online_count = rand(10, 100);
+        } else {
+            $online_count = rand(50, 200);
+        }
+        $log = new NodeOnlineLog();
+        $log->node_id = 1;
+        $log->log_time = time();
+        $log->online_user = $online_count;
+        $log->save();
     }
 
     /**

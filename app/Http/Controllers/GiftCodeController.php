@@ -32,6 +32,7 @@ class GiftCodeController extends Controller
 
     public function __construct()
     {
+        parent::__construct();
         $this->user = \Auth::user();
     }
 
@@ -198,7 +199,6 @@ class GiftCodeController extends Controller
         $giftCodeLog->gift_code_id = $gift_code->id;
         $giftCodeLog->save();
     }
-
 
 
     public function generateCode($number = 1, $type = self::MONTH, $transfer_value = self::TINY_TRANSFER_VALUE)

@@ -42,26 +42,17 @@ Route::group(['prefix' => 'user', 'middleware' => ['simpleauth']], function () {
         return view('dashboard.person');
     });
 
-    Route::get('/blank', function () {
-        return view('layouts.blank');
-    });
-
-    Route::get('/readme', function () {
-        return view('dashboard.readme');
-    });
+    Route::get('/readme','ReadMeController@index');
 
     Route::get('/node', 'NodeController@index');
 
-    Route::get('/buy', function () {
-        return view('dashboard.buy');
-    });
+    Route::get('/buy', 'BuyController@index');
+
     Route::get('/gift', 'GiftCodeController@index');
 
     Route::post('/gift', 'GiftCodeController@index');
 
-    Route::get('/client', function () {
-        return view('dashboard.client');
-    });
+    Route::get('/client', 'DownloadClientController@index');
 
     Route::get('/spread', function () {
         return view('dashboard.spread');
