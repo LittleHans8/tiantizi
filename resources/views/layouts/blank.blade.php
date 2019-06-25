@@ -159,12 +159,7 @@
                         <small><b>总产生流量</b>
                         </small>
                     </div>
-                    <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" role="progressbar"
-                             style="width: {{ $blankdata['total_traffic']/1024*12*2 * 100 }}%"
-                             aria-valuenow="{{ $blankdata['total_traffic']/1024*12*2 * 100 }}"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+               
                     <small class="text-muted">{{ $blankdata['total_traffic'] }}</small>
                 </li>
                 <li class="nav-item px-1 hidden-cn">
