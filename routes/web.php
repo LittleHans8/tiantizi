@@ -13,6 +13,7 @@
 
 use App\Http\Middleware\RedirectIfNotAuthenticated;
 use App\Http\Middleware\SimpleAuth;
+use App\User;
 
 Route::get('/', function () {
     return view('index');
