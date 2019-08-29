@@ -24,7 +24,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/try', function () {
     Auth::login(User::find(8)->first());
-    return redirect()->home();
+    return redirect('home');
 });
 
 
