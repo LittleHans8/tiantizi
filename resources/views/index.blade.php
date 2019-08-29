@@ -25,20 +25,22 @@
                     <img src="{{ asset('img/favicon.png') }}">
                     <h1>天梯子</h1>
                     <h3>提供SS网络加速服务</h3>
+                    <div class="text-center" style="margin-top: 24px">
+                        <a class="btn btn-outline-primary" href="{{ url('/try') }}" target="_blank">一键体验</a>
+                    </div>
                 </div>
             </div>
             <br>
             <div class="intro__title animate-scroll" data-animate-scroll=""></div>
             <div class="text-md-center">
-                <small class="text-muted">你说你喜欢雨,但是你下雨的时候却打伞</small>
+                <small class="text-muted">免费体验</small>
                 <br>
-                <small class="text-muted ">你说你喜欢太阳,但是你却在阳光明媚的时候躲在阴凉的地方</small>
+                <small class="text-muted ">阿里云专属线路</small>
                 <br>
-                <small class="text-muted ">你说你喜欢风,但是在刮风的时候你却关上窗户</small>
+                <small class="text-muted ">超高性价比</small>
                 <br>
-                <small class="text-muted ">这就是为什么我会害怕你说想要自由</small>
+                <small class="text-muted ">秒开4Kyoutube</small>
                 <br>
-                <small class="text-muted">却不科学上网</small>
                 <br>
             </div>
         </div>
@@ -49,11 +51,11 @@
                     <a class="btn btn-outline-primary" href="{{ url('/home') }}" target="_blank">用户中心</a>
                 @else
                     <a href="/login" target="_blank" class="btn btn-outline-primary">
-                        发现自由
+                        登录
                     </a>
 
                     <a href="/register" target="_blank" class="btn btn-outline-primary">
-                        新的世界
+                        注册
                     </a>
                 @endif
             @endif

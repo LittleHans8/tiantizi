@@ -21,6 +21,12 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::get('/try', function () {
+    Auth::login(User::find(8)->first());
+    return redirect()->home();
+});
+
+
 Route::group(['prefix' => 'api', 'middleware' => ['simpleapi']], function () {
 //    Route::get('users', 'APIUserController@index');
 //    Route::post('users/{id}/traffic', 'APIUserController@addTraffic');
